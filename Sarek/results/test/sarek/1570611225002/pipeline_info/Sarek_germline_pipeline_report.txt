@@ -1,0 +1,52 @@
+========================================
+ nf-core/sarek v2.3
+========================================
+Run Name: pensive_woese
+
+## nf-core/sarek execution completed successfully! ##
+
+
+The workflow was completed at Wed Oct 09 11:06:57 CEST 2019 (duration: 6m 8s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow run germlineVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step germline --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,cluster -with-trace Reports/pipeline_info/Sarek_germline_trace.csv -with-report Reports/pipeline_info/Sarek_germline_report.html -with-timeline Reports/pipeline_info/Sarek_germline_timeline.html -with-dag Reports/pipeline_info/Sarek_germline_DAG.pdf
+
+
+
+Pipeline Configuration:
+-----------------------
+ - Run Name: pensive_woese
+ - Sample File: Preprocessing/Recalibrated/recalibrated.tsv
+ - Genome: smallGRCh37
+ - Genome Base: References/smallGRCh37
+ - Sequencing Center: SEQC-II Consortium
+ - Target BED: Sarek-data/testdata/target.bed
+ - Step: germline
+ - Tools: freebayes, haplotypecaller, manta, mutect2, strelka
+ - GVCF: Yes
+ - Strelka BP: Yes
+ - Sequenced by: SEQC-II Consortium
+ - Max Resources: 128 GB memory, 16 cpus, 10d time per job
+ - Container: singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Output dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/Reports
+ - Launch dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002
+ - Working dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work
+ - Script dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002
+ - User: plarosa
+ - dbsnp: References/smallGRCh37/dbsnp_138.b37.small.vcf
+ - intervals: References/smallGRCh37/small.intervals
+ - Config Profile: singularityPath,cluster
+ - Duration: 6m 8s
+ - Date Started: Wed Oct 09 11:00:49 CEST 2019
+ - Date Completed: Wed Oct 09 11:06:57 CEST 2019
+ - Pipeline script file path: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/germlineVC.nf
+ - Pipeline script hash ID: 7b4cebd6d6b693d1377b02ce921eb174
+ - Docker image: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Nextflow Version: 19.04.0
+ - Nextflow Build: 5069
+ - Nextflow Compile Timestamp: 17-04-2019 06:25 UTC
+
+--
+nf-core/sarek
+https://github.com/nf-core/sarek

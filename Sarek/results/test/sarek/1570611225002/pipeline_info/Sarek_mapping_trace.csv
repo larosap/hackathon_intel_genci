@@ -1,0 +1,73 @@
+process	task_id	hash	native_id	module	container	tag	name	status	exit	submit	start	complete	duration	realtime	%cpu	%mem	rss	vmem	peak_rss	peak_vmem	rchar	wchar	syscr	syscw	read_bytes	write_bytes	attempt	workdir	scratch	queue	cpus	memory	disk	time	env
+MapReads	3	5f/3eb5b9	3327350.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N_M1	MapReads (1234-1234N_M1)	COMPLETED	0	2019-10-09 10:54:07.473	2019-10-09 10:54:16.326	2019-10-09 10:54:36.329	28.9s	20.7s	555.7%	0.8%	984.6 MB	17.3 GB	1014.8 MB	17.3 GB	482.5 MB	477.9 MB	110650	97970	103.5 MB	95.8 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/5f/3eb5b9e102509ba242e6504c72de28	-	dev	8	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunFastQC	2	1f/fd000e	3327344.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N_M2	RunFastQC (1234-1234N_M2)	COMPLETED	0	2019-10-09 10:54:07.044	2019-10-09 10:54:41.325	2019-10-09 10:54:41.334	34.3s	12.8s	165.3%	0.3%	347.9 MB	2.7 GB	347.9 MB	2.8 GB	146.7 MB	1.4 MB	242987	8159	20.4 MB	840 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/1f/fd000e393b14cd69d11fa37b59f48a	-	dev	2	16 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunFastQC	1	00/433997	3327346.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N_M1	RunFastQC (1234-1234N_M1)	COMPLETED	0	2019-10-09 10:54:07.234	2019-10-09 10:54:41.409	2019-10-09 10:54:41.416	34.2s	11.9s	172.2%	0.2%	319 MB	2.7 GB	319 MB	2.8 GB	131 MB	1.5 MB	210989	8223	20.4 MB	864 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/00/4339972acab44752009b8801f2e933	-	dev	2	16 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunFastQC	6	a8/a4efee	3327347.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T_M2	RunFastQC (1234-9876T_M2)	COMPLETED	0	2019-10-09 10:54:07.303	2019-10-09 10:54:41.467	2019-10-09 10:54:41.478	34.2s	24.1s	169.2%	0.1%	319.7 MB	2.7 GB	321.1 MB	2.8 GB	154 MB	1.5 MB	257952	8187	20.4 MB	884 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/a8/a4efee69e86f48a24ebbe7e68ade8e	-	dev	2	16 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunFastQC	7	0f/c229d4	3327348.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T_M1	RunFastQC (1234-9876T_M1)	COMPLETED	0	2019-10-09 10:54:07.366	2019-10-09 10:54:41.528	2019-10-09 10:54:41.533	34.2s	11.8s	170.1%	0.2%	305.7 MB	2.7 GB	305.7 MB	2.8 GB	129.5 MB	1.5 MB	207869	8229	20.4 MB	868 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/0f/c229d441d848deb4de90112e58dc35	-	dev	2	16 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MapReads	5	05/ce1b4b	3327349.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T_M1	MapReads (1234-9876T_M1)	COMPLETED	0	2019-10-09 10:54:07.415	2019-10-09 10:54:41.559	2019-10-09 10:54:41.567	34.2s	21.8s	585.4%	0.8%	1005.4 MB	17.3 GB	1020.8 MB	17.3 GB	480.8 MB	476 MB	110415	97922	100.6 MB	94.2 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/05/ce1b4ba680eb2d4cb44ca905b22d85	-	dev	8	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCmapped	9	14/31878d	3327355.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	RunBamQCmapped (1234-1234N)	COMPLETED	0	2019-10-09 10:54:36.640	2019-10-09 10:55:11.325	2019-10-09 10:55:11.335	34.7s	8.7s	176.0%	0.2%	261.4 MB	23.5 GB	261.4 MB	23.5 GB	126.3 MB	1020.1 KB	16551	2126	115.7 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/14/31878d13c05faf34cbc5d2345117ca	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MapReads	4	f5/be5914	3327345.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N_M2	MapReads (1234-1234N_M2)	COMPLETED	0	2019-10-09 10:54:07.171	2019-10-09 10:54:41.403	2019-10-09 10:55:16.327	1m 9s	39.3s	647.3%	0.8%	1.1 GB	17.3 GB	1.1 GB	17.3 GB	574.5 MB	576.7 MB	132213	117616	117.8 MB	118.2 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/f5/be59142c4702903debb8cb211d898f	-	dev	8	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCmapped	10	97/d6fae0	3327356.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	RunBamQCmapped (1234-9876T)	COMPLETED	0	2019-10-09 10:54:41.642	2019-10-09 10:55:16.362	2019-10-09 10:55:16.373	34.7s	6.5s	186.4%	0.3%	406.9 MB	23.5 GB	406.9 MB	23.5 GB	124.9 MB	1 MB	16650	2137	114.1 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/97/d6fae061c6940f2112dc7a7924bc32	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MapReads	8	b4/8f66c1	3327351.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T_M2	MapReads (1234-9876T_M2)	COMPLETED	0	2019-10-09 10:54:07.543	2019-10-09 10:54:41.585	2019-10-09 10:55:51.327	1m 44s	1m 3s	722.4%	0.4%	994.8 MB	17.3 GB	1.1 GB	17.3 GB	580.2 MB	583 MB	132738	117213	3.3 MB	126.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/b4/8f66c1a721110804377d79bc667a03	-	dev	8	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCmapped	11	fe/d4fcac	3327364.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	RunBamQCmapped (1234-1234N)	COMPLETED	0	2019-10-09 10:55:16.419	2019-10-09 10:55:21.350	2019-10-09 10:55:51.396	35s	10.2s	194.0%	0.2%	324.6 MB	23.5 GB	324.6 MB	23.5 GB	149 MB	1009.3 KB	18509	2049	138.1 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/fe/d4fcac4a64115d1d51bd331af0ed37	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCmapped	12	96/ee0d3f	3327370.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	RunBamQCmapped (1234-9876T)	COMPLETED	0	2019-10-09 10:55:51.447	2019-10-09 10:55:56.324	2019-10-09 10:56:26.332	34.9s	10.4s	202.9%	0.3%	380.8 MB	23.5 GB	380.8 MB	23.5 GB	156.8 MB	1 MB	18469	2116	146 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/96/ee0d3fadd4d3770565e8eddd276822	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MergeBams	13	bb/646cfb	3327371.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	MergeBams (1234-1234N)	COMPLETED	0	2019-10-09 10:55:52.105	2019-10-09 10:55:56.331	2019-10-09 10:56:26.594	34.5s	6.7s	242.9%	0.0%	8.7 MB	362.3 MB	8.7 MB	426.3 MB	214.1 MB	214.4 MB	7524	239	216.6 MB	214.5 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/bb/646cfb1a89369c8ccd64994f8b92ba	-	dev	4	7 GB	-	5h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MergeBams	14	e6/e66e44	3327372.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	MergeBams (1234-9876T)	COMPLETED	0	2019-10-09 10:55:52.170	2019-10-09 10:55:56.336	2019-10-09 10:56:26.625	34.5s	6.1s	301.6%	0.0%	8.7 MB	362.3 MB	8.7 MB	425.5 MB	220.2 MB	220.6 MB	7826	246	222.8 MB	220.7 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/e6/e66e441fc4b63fabcad8eba3269c56	-	dev	4	7 GB	-	5h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MarkDuplicates	15	f1/b8d7ae	3327373.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	MarkDuplicates (1234-1234N)	COMPLETED	0	2019-10-09 10:56:27.019	2019-10-09 10:57:01.329	2019-10-09 10:57:36.331	1m 9s	23.9s	196.7%	2.9%	3.7 GB	10.4 GB	3.7 GB	10.4 GB	289.9 MB	306 MB	549540	3020	257.5 MB	306 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/f1/b8d7ae069243b15abc343f62c140d5	-	dev	8	8 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+MarkDuplicates	16	4c/f9fec7	3327374.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	MarkDuplicates (1234-9876T)	COMPLETED	0	2019-10-09 10:56:27.072	2019-10-09 10:57:01.337	2019-10-09 10:57:36.469	1m 9s	27.2s	193.5%	2.9%	3.6 GB	10.4 GB	3.6 GB	10.4 GB	296.7 MB	312.5 MB	456819	3019	263.8 MB	312.5 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/4c/f9fec76209914da2221d93983e061a	-	dev	8	8 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+CreateRecalibrationTable	17	86/7c4de0	3327397.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	CreateRecalibrationTable (1234-1234N)	COMPLETED	0	2019-10-09 10:57:36.536	2019-10-09 10:58:11.330	2019-10-09 10:58:46.333	1m 10s	30.1s	83.4%	0.6%	724.7 MB	22 GB	724.7 MB	22.1 GB	110.7 MB	1 MB	23751	66139	132.7 MB	436 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/86/7c4de065869ab88179bdabdca460af	-	dev	1	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+CreateRecalibrationTable	18	08/2285cf	3327398.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	CreateRecalibrationTable (1234-9876T)	COMPLETED	0	2019-10-09 10:57:36.609	2019-10-09 10:58:11.337	2019-10-09 10:58:46.442	1m 10s	28.7s	82.8%	0.6%	723 MB	22 GB	723 MB	22.1 GB	112 MB	1 MB	23677	66251	131 MB	444 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/08/2285cf7a4ea9961554f58b0785d4bf	-	dev	1	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RecalibrateBam	20	d5/f5794c	3327417.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	RecalibrateBam (1234-9876T)	COMPLETED	0	2019-10-09 10:58:46.951	2019-10-09 10:59:21.534	2019-10-09 10:59:21.574	34.6s	17.8s	133.6%	0.6%	731.5 MB	16.7 GB	731.5 MB	16.7 GB	89.2 MB	65.1 MB	22379	864	128.6 MB	64.5 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/d5/f5794c71fe66c7276c6e40d204d593	-	dev	2	14 GB	-	10h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RecalibrateBam	19	b3/559a86	3327416.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	RecalibrateBam (1234-1234N)	COMPLETED	0	2019-10-09 10:58:46.562	2019-10-09 10:59:21.464	2019-10-09 10:59:26.413	39.9s	27.8s	139.8%	0.3%	740.6 MB	16.7 GB	740.6 MB	16.7 GB	88.6 MB	64.8 MB	22503	864	130.2 MB	64.2 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/b3/559a86d6832cf12ca909c71ec555dd	-	dev	2	14 GB	-	10h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCrecalibrated	21	97/31f525	3327419.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	RunBamQCrecalibrated (1234-9876T)	COMPLETED	0	2019-10-09 10:59:21.929	2019-10-09 10:59:56.402	2019-10-09 10:59:56.418	34.5s	8.9s	206.3%	0.2%	299.2 MB	23.5 GB	299.2 MB	23.5 GB	95.3 MB	1013.1 KB	10415	2061	84.5 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/97/31f525165cf6653f0e579ca09725d8	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunSamtoolsStats	22	81/781850	3327420.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-9876T	RunSamtoolsStats (1234-9876T)	COMPLETED	0	2019-10-09 10:59:21.965	2019-10-09 10:59:26.490	2019-10-09 10:59:56.641	34.7s	1.7s	97.7%	0.0%	4.9 MB	43.8 MB	4.9 MB	43.8 MB	64.6 MB	200 KB	2327	13	67.2 MB	200 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/81/7818504e10eb59dfcc8ef508bb026e	-	dev	2	16 GB	-	5h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunSamtoolsStats	23	37/86d569	3327421.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	RunSamtoolsStats (1234-1234N)	COMPLETED	0	2019-10-09 10:59:26.545	2019-10-09 10:59:56.663	2019-10-09 10:59:56.678	30.1s	2.4s	88.6%	0.0%	4.9 MB	43.8 MB	4.9 MB	43.8 MB	64.3 MB	200.7 KB	2291	13	66.9 MB	204 KB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/37/86d569190c1ec7197bf6db7081c3af	-	dev	2	16 GB	-	5h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+
+RunBamQCrecalibrated	24	9f/c30a9d	3327422.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	1234-1234N	RunBamQCrecalibrated (1234-1234N)	COMPLETED	0	2019-10-09 10:59:26.628	2019-10-09 10:59:56.707	2019-10-09 10:59:56.719	30.1s	6.4s	208.0%	0.2%	317.1 MB	23.5 GB	317.1 MB	23.5 GB	95 MB	1002.2 KB	10546	2037	84.2 MB	1.1 MB	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/work/9f/c30a9d43bdae875d6108855c20c7e1	-	dev	6	20 GB	-	8h	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570611225002/bin:$PATH
+

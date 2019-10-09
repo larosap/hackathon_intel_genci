@@ -1,0 +1,222 @@
+<!doctype html>
+<!--
+  ~ Copyright 2013-2019, Centre for Genomic Regulation (CRG)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + prot + "code.jquery.com/jquery-latest.min.js' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "d3js.org/d3.v3.min.js' charset='utf-8' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "cdn.rawgit.com/nextflow-io/d3-timeline/82622c4cc35bac7283b3a317826b0709ac1ae476/src/d3-timeline.js' type='text/javascript' %3E%3C/script%3E"));
+</script>
+<style type="text/css">
+* {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.axis path,
+.axis line {
+fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+div#timeline g text {
+  font-size: 13px;
+}
+
+text.timeline-label {
+  font-size: 13px;
+}
+
+#timeline2 .axis {
+  transform: translate(0px,30px);
+  -ms-transform: translate(0px,30px); /* IE 9 */
+  -webkit-transform: translate(0px,30px); /* Safari and Chrome */
+  -o-transform: translate(0px,30px); /* Opera */
+  -moz-transform: translate(0px,30px); /* Firefox */
+}
+
+.coloredDiv {
+  height:20px; width:20px; float:left;
+}
+
+#footer {
+  padding-top: 3em; color: #bfbfbf; font-size: 13px;
+}
+
+#footer a:visited {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+var handler=null;
+// see https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c
+var colors = d3.scale.category20c().domain(d3.range(0,20)).range()
+
+function c0(index) { return "#9c9c9c"; }
+function c1(index) { return "#bdbdbd"; }
+function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
+
+var elapsed="5m 55s"
+var beginningMillis=1570611244310;
+var endingMillis=1570611598825;
+var data=[
+{"label": "RunFastQC (1234-1234N_M2)", "times": [{"starting_time": 1570611247044, "ending_time": 1570611281325, "color":c1(0)}, {"starting_time": 1570611281325, "ending_time": 1570611294131, "color":c2(0), "label": "34.3s \/ 347.9 MB"}]},
+{"label": "MapReads (1234-1234N_M2)", "times": [{"starting_time": 1570611247171, "ending_time": 1570611281403, "color":c1(1)}, {"starting_time": 1570611281403, "ending_time": 1570611320685, "color":c2(1), "label": "1m 9s \/ 1.1 GB"}]},
+{"label": "RunFastQC (1234-1234N_M1)", "times": [{"starting_time": 1570611247234, "ending_time": 1570611281409, "color":c1(0)}, {"starting_time": 1570611281409, "ending_time": 1570611293264, "color":c2(0), "label": "34.2s \/ 319 MB"}]},
+{"label": "RunFastQC (1234-9876T_M2)", "times": [{"starting_time": 1570611247303, "ending_time": 1570611281467, "color":c1(0)}, {"starting_time": 1570611281467, "ending_time": 1570611305571, "color":c2(0), "label": "34.2s \/ 321.1 MB"}]},
+{"label": "RunFastQC (1234-9876T_M1)", "times": [{"starting_time": 1570611247366, "ending_time": 1570611281528, "color":c1(0)}, {"starting_time": 1570611281528, "ending_time": 1570611293293, "color":c2(0), "label": "34.2s \/ 305.7 MB"}]},
+{"label": "MapReads (1234-9876T_M1)", "times": [{"starting_time": 1570611247415, "ending_time": 1570611281559, "color":c1(1)}, {"starting_time": 1570611281559, "ending_time": 1570611303352, "color":c2(1), "label": "34.2s \/ 1020.8 MB"}]},
+{"label": "MapReads (1234-1234N_M1)", "times": [{"starting_time": 1570611247473, "ending_time": 1570611256326, "color":c1(1)}, {"starting_time": 1570611256326, "ending_time": 1570611277053, "color":c2(1), "label": "28.9s \/ 1014.8 MB"}]},
+{"label": "MapReads (1234-9876T_M2)", "times": [{"starting_time": 1570611247543, "ending_time": 1570611281585, "color":c1(1)}, {"starting_time": 1570611281585, "ending_time": 1570611344840, "color":c2(1), "label": "1m 44s \/ 1.1 GB"}, {"starting_time": 1570611344840, "ending_time": 1570611351327, "color":c1(1)}]},
+{"label": "RunBamQCmapped (1234-1234N)", "times": [{"starting_time": 1570611276640, "ending_time": 1570611311325, "color":c1(2)}, {"starting_time": 1570611311325, "ending_time": 1570611320039, "color":c2(2), "label": "34.7s \/ 261.4 MB"}]},
+{"label": "RunBamQCmapped (1234-9876T)", "times": [{"starting_time": 1570611281642, "ending_time": 1570611316362, "color":c1(2)}, {"starting_time": 1570611316362, "ending_time": 1570611322904, "color":c2(2), "label": "34.7s \/ 406.9 MB"}]},
+{"label": "RunBamQCmapped (1234-1234N)", "times": [{"starting_time": 1570611316419, "ending_time": 1570611321350, "color":c1(2)}, {"starting_time": 1570611321350, "ending_time": 1570611331507, "color":c2(2), "label": "35s \/ 324.6 MB"}, {"starting_time": 1570611331507, "ending_time": 1570611351396, "color":c1(2)}]},
+{"label": "RunBamQCmapped (1234-9876T)", "times": [{"starting_time": 1570611351447, "ending_time": 1570611356324, "color":c1(2)}, {"starting_time": 1570611356324, "ending_time": 1570611366735, "color":c2(2), "label": "34.9s \/ 380.8 MB"}, {"starting_time": 1570611366735, "ending_time": 1570611386332, "color":c1(2)}]},
+{"label": "MergeBams (1234-1234N)", "times": [{"starting_time": 1570611352105, "ending_time": 1570611356331, "color":c1(3)}, {"starting_time": 1570611356331, "ending_time": 1570611363074, "color":c2(3), "label": "34.5s \/ 8.7 MB"}, {"starting_time": 1570611363074, "ending_time": 1570611386594, "color":c1(3)}]},
+{"label": "MergeBams (1234-9876T)", "times": [{"starting_time": 1570611352170, "ending_time": 1570611356336, "color":c1(3)}, {"starting_time": 1570611356336, "ending_time": 1570611362402, "color":c2(3), "label": "34.5s \/ 8.7 MB"}, {"starting_time": 1570611362402, "ending_time": 1570611386625, "color":c1(3)}]},
+{"label": "MarkDuplicates (1234-1234N)", "times": [{"starting_time": 1570611387019, "ending_time": 1570611421329, "color":c1(4)}, {"starting_time": 1570611421329, "ending_time": 1570611445262, "color":c2(4), "label": "1m 9s \/ 3.7 GB"}, {"starting_time": 1570611445262, "ending_time": 1570611456331, "color":c1(4)}]},
+{"label": "MarkDuplicates (1234-9876T)", "times": [{"starting_time": 1570611387072, "ending_time": 1570611421337, "color":c1(4)}, {"starting_time": 1570611421337, "ending_time": 1570611448505, "color":c2(4), "label": "1m 9s \/ 3.6 GB"}, {"starting_time": 1570611448505, "ending_time": 1570611456469, "color":c1(4)}]},
+{"label": "CreateRecalibrationTable (1234-1234N)", "times": [{"starting_time": 1570611456536, "ending_time": 1570611491330, "color":c1(5)}, {"starting_time": 1570611491330, "ending_time": 1570611521436, "color":c2(5), "label": "1m 10s \/ 724.7 MB"}, {"starting_time": 1570611521436, "ending_time": 1570611526333, "color":c1(5)}]},
+{"label": "CreateRecalibrationTable (1234-9876T)", "times": [{"starting_time": 1570611456609, "ending_time": 1570611491337, "color":c1(5)}, {"starting_time": 1570611491337, "ending_time": 1570611520042, "color":c2(5), "label": "1m 10s \/ 723 MB"}, {"starting_time": 1570611520042, "ending_time": 1570611526442, "color":c1(5)}]},
+{"label": "RecalibrateBam (1234-1234N)", "times": [{"starting_time": 1570611526562, "ending_time": 1570611561464, "color":c1(6)}, {"starting_time": 1570611561464, "ending_time": 1570611589253, "color":c2(6), "label": "39.9s \/ 740.6 MB"}]},
+{"label": "RecalibrateBam (1234-9876T)", "times": [{"starting_time": 1570611526951, "ending_time": 1570611561534, "color":c1(6)}, {"starting_time": 1570611561534, "ending_time": 1570611579357, "color":c2(6), "label": "34.6s \/ 731.5 MB"}]},
+{"label": "RunBamQCrecalibrated (1234-9876T)", "times": [{"starting_time": 1570611561929, "ending_time": 1570611596402, "color":c1(7)}, {"starting_time": 1570611596402, "ending_time": 1570611605302, "color":c2(7), "label": "34.5s \/ 299.2 MB"}]},
+{"label": "RunSamtoolsStats (1234-9876T)", "times": [{"starting_time": 1570611561965, "ending_time": 1570611566490, "color":c1(8)}, {"starting_time": 1570611566490, "ending_time": 1570611568169, "color":c2(8), "label": "34.7s \/ 4.9 MB"}, {"starting_time": 1570611568169, "ending_time": 1570611596641, "color":c1(8)}]},
+{"label": "RunSamtoolsStats (1234-1234N)", "times": [{"starting_time": 1570611566545, "ending_time": 1570611596663, "color":c1(8)}, {"starting_time": 1570611596663, "ending_time": 1570611599021, "color":c2(8), "label": "30.1s \/ 4.9 MB"}]},
+{"label": "RunBamQCrecalibrated (1234-1234N)", "times": [{"starting_time": 1570611566628, "ending_time": 1570611596707, "color":c1(7)}, {"starting_time": 1570611596707, "ending_time": 1570611603122, "color":c2(7), "label": "30.1s \/ 317.1 MB"}]}
+]
+
+
+function getTickFormat() {
+  var MIN = 1000 * 60
+  var HOUR = MIN * 60
+  var DAY = HOUR * 24
+  var delta = (endingMillis - beginningMillis)
+
+  if( delta < 2 * MIN ) {
+    return {
+      format: d3.time.format("%S"),
+      tickTime: d3.time.seconds,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * HOUR ) {
+    return {
+      format: d3.time.format("%M"),
+      tickTime: d3.time.minutes,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * DAY ) {
+    return {
+      format: d3.time.format("%H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 1,
+      tickSize: 6
+    }
+  }
+
+  if( delta <= 7 * DAY ) {
+    return {
+      format: d3.time.format("%b %e %H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 6,
+      tickSize: 6
+    }
+  }
+
+  return {
+    format: d3.time.format("%b %e"),
+    tickTime: d3.time.days,
+    tickInterval: 1,
+    tickSize: 6
+  }
+}
+
+function getLabelMargin(scale) {
+    $('<span class="labelSpan" style="display: none"></span>').appendTo('body');
+
+    var labelMargin = 0
+    $.each(data, function (key, value) {
+      labelMargin = Math.max(labelMargin, $('.labelSpan').html(value.label).width());
+    });
+
+    $('.labelSpan').remove();
+
+    return (labelMargin * scale);
+}
+
+function render() {
+  handler=null;
+  $("#timeline").empty()
+  $('#label_elapsed').text(elapsed)
+  $('#label_launch').text( d3.time.format('%d %b %Y %H:%M')(new Date(beginningMillis)) )
+
+  var width = $(window).width();
+  var chart = d3.timeline()
+    .stack() // toggles graph stacking
+    .margin({left:getLabelMargin(0.85), right:100, top:0, bottom:0})
+    .tickFormat( getTickFormat() )
+    .rowSeperators('#f5f5f5')
+    .showTimeAxisTick()
+    ;
+  var svg = d3.select("#timeline").append("svg").attr("width", width).datum(data).call(chart);
+}
+
+function hrz() {
+if( handler != null ) clearTimeout(handler)
+  handler = setTimeout(render, 150);
+}
+
+$(document).ready(render)
+$(window).resize(hrz); // resize the applet on window resize
+</script>
+</head>
+
+<body>
+<div>
+  <h3>Processes execution timeline</h3>
+  <p>
+    Launch time: <span id='label_launch'> </span><br>
+    Elapsed time: <span id='label_elapsed'> </span><br>
+    Legend: job wall time / memory usage (RAM) <span id='label_legend'> </span>
+  </p>
+  <div id="timeline"></div>
+</div>
+
+<div id='footer'>
+  Created with Nextflow -- <a href='http://www.nextflow.io' target='_blank'>http://nextflow.io</a>
+</div>
+
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Clink href='" + prot + "fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css' %3E%3C/link%3E"));
+</script>
+</body>
+</html>

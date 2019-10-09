@@ -1,0 +1,61 @@
+Ch38
+
+Use --genome GRCh38 to map against GRCh38. Before doing so and if you are not on UPPMAX, you need to adjust the settings in genomes.config to your needs.
+
+To get the needed files, download the GATK bundle for GRCh38 from ftp://gsapubftp-anonymous@ftp.broadinstitute.org/bundle/hg38/. You can also download the required files from the Google Cloud mirror link here : https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0
+
+The MD5SUM of Homo_sapiens_assembly38.fasta included in that file is 7ff134953dcca8c8997453bbb80b6b5e.
+
+If you download the data from the FTP servers beta/ directory, which seems to be an older version of the bundle, only Homo_sapiens_assembly38.known_indels.vcf is needed. Also, you can omit dbsnp_138_ and dbsnp_144 files as we use dbsnp_146. The old ones also use the wrong chromosome naming convention. The Google Cloud mirror has all data in the v0 directory, but requires you to remove the resources_broad_hg38_v0_ prefixes from all files.
+
+The following files need to be downloaded:
+
+    3884c62eb0e53fa92459ed9bff133ae6 - 'Homo_sapiens_assembly38.dict'
+    7ff134953dcca8c8997453bbb80b6b5e - 'Homo_sapiens_assembly38.fasta'
+    b07e65aa4425bc365141756f5c98328c - 'Homo_sapiens_assembly38.fasta.64.alt'
+    e4dc4fdb7358198e0847106599520aa9 - 'Homo_sapiens_assembly38.fasta.64.amb'
+    af611ed0bb9487fb1ba4aa1a7e7ad21c - 'Homo_sapiens_assembly38.fasta.64.ann'
+    d41d8cd98f00b204e9800998ecf8427e - 'Homo_sapiens_assembly38.fasta.64.bwt'
+    178862a79b043a2f974ef10e3877ef86 - 'Homo_sapiens_assembly38.fasta.64.pac'
+    91a5d5ed3986db8a74782e5f4519eb5f - 'Homo_sapiens_assembly38.fasta.64.sa'
+    f76371b113734a56cde236bc0372de0a - 'Homo_sapiens_assembly38.fasta.fai'
+    14cc588a271951ac1806f9be895fb51f - 'Homo_sapiens_assembly38.known_indels.vcf.gz'
+    1a55fdfa6533ae5cbc70e8188e779229 - 'Homo_sapiens_assembly38.known_indels.vcf.gz.tbi'
+    2e02696032dcfe95ff0324f4a13508e3 - 'Mills_and_1000G_gold_standard.indels.hg38.vcf.gz'
+    4c807e2cbe0752c0c44ac82ff3b52025 - 'Mills_and_1000G_gold_standard.indels.hg38.vcf.gz.tbi'
+
+If you just downloaded the Homo_sapiens_assembly38.fasta.gz file, you would need to do:
+
+gunzip Homo_sapiens_assembly38.fasta.gz
+bwa index -6 Homo_sapiens_assembly38.fasta
+
+Description of how to generate the Loci file used in the ASCAT process is described here : https://github.com/SciLifeLab/Sarek/blob/master/docs/ASCAT.md
+
+
+Intervals
+
+To speed up the variant calling processes, the reference is chopped into smaller pieces. The variant calling is done by this intervals, and the different resulting VCFs are then merged. This can parallelize the variant calling processes, and push down the variant calling wall clock time significantly.
+
+The calling intervals can be defined using a .list or a .bed file. A .list file contains one interval per line in the format chromosome:start-end (1-based coordinates).
+
+When the intervals file is in BED format, the file must be a tab-separated text file with one interval per line. There must be at least three columns: chromosome, start, and end. In BED format, the coordinates are 0-based, so the interval chrom:1-10 becomes chrom<tab>0<tab>10.
+
+Additionally, the "score" column of the BED file can be used to provide an estimate of how many seconds it will take to call variants on that interval. The fourth column remains unused. Example (the fields would actually be tab-separated, this is not shown here):
+
+chr1 10000 207666 NA 47.3
+
+This indicates that variant calling on the interval chr1:10001-207666 takes approximately 47.3 seconds.
+
+The runtime estimate is used in two different ways. First, when there are multiple consecutive intervals in the file that take little time to compute, they are processed as a single job, thus reducing the number of processes that needs to be spawned. Second, the jobs with largest processing time are started first, which reduces wall-clock time. If no runtime is given, a time of 1000 nucleotides per second is assumed. Actual figures vary from 2 nucleotides/second to 30000 nucleotides/second.
+
+GRCh38
+
+The file wgs_calling_regions_sorted.hg38.list contains the intervals which are a list of non-N regions, sorted by their size, to enhance wall clock time.
+## grep -v @ wgs_calling_regions.hg38.bed | awk ' { printf "%s:%s-%s\n", $1,$2,$3 } ' | awk -Fchr ' { print $2 } ' > wgs_calling_regions.hg38.list
+
+The file wgs_calling_regions.hg38.bed contains the intervals which are a list of non-N regions in a BED format, with the fifth column containing runtime estimate used to enhance wall clock time.
+## grep -v @ wgs_calling_regions.hg38.bed | awk ' { printf "%s\t%s\t%s\n", $1,$2,$3 } ' > wgs_calling_regions.hg38.bed2
+
+
+
+
