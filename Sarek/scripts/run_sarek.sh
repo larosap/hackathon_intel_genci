@@ -215,7 +215,7 @@ SOMATIC
 cd  ${WORK_DIR}
 # lancement du pipeline sur le cluster 
 
-nextflow run annotate.nf -resume --genome_base ${genomebase} --tag latest -c nextflow.config --genome ${genome} --sequencing_center "SEQC-II Consortium" --annotateTools haplotypecaller,strelka,mutect2 --tools snpEff -profile ${profile} -with-trace Reports/pipeline_info/Sarek_annotate_trace.csv -with-report Reports/pipeline_info/Sarek_annotate_report.html  -with-timeline Reports/pipeline_info/Sarek_annotate_timeline.html -with-dag Reports/pipeline_info/Sarek_annotate_DAG.pdf &&  sleep 30 && ${COMM} ${SCRIPT_STEP_MULTIQC} 
+nextflow run annotate.nf -resume --genome_base ${genomebase} --tag latest -c nextflow.config --genome ${genome} --sequencing_center "SEQC-II Consortium" --step annotate --annotateTools haplotypecaller,strelka,mutect2 --tools snpEff -profile ${profile} -with-trace Reports/pipeline_info/Sarek_annotate_trace.csv -with-report Reports/pipeline_info/Sarek_annotate_report.html  -with-timeline Reports/pipeline_info/Sarek_annotate_timeline.html -with-dag Reports/pipeline_info/Sarek_annotate_DAG.pdf &&  sleep 30 && ${COMM} ${SCRIPT_STEP_MULTIQC} 
 
 ANNOTATE
 
