@@ -150,7 +150,7 @@ function pipeline_create_env() {
    LOCAL_LOG_DIR=${LOCAL_LOG_DIR:="LOG"}
    PIPELINES_PATH=${PIPELINES_PATH:="/bioinfo/pipelines"}
    COMM="bash"
-   SUBMIT="qsub"
+   SUBMIT=${SUBMIT:="qsub"}
 }
 
 
@@ -169,7 +169,7 @@ function pipeline_create_nxf_work_dir() {
    # creation scripts de lancement de nextflow
    if [[ $queue != false ]]
    then
-        COMM="${SUBMIT} -N ${project_name}_germline_${run}"
+        COMM="${SUBMIT}"
    fi
    cat <<MAPPING > ${SCRIPT_STEP_MAPPING}
 # SAREK MAPPING
@@ -180,10 +180,6 @@ nextflow run main.nf -resume  --genome_base ${genomebase} --tag latest  -c nextf
 
 MAPPING
 
- if [[ $queue != false ]]
-   then
-        COMM="${SUBMIT} -N ${project_name}_somatic_${run}"
- fi
  cat <<GERMLINE > ${SCRIPT_STEP_GERMLINE}
 # SAREK GERMLINE
 cd  ${WORK_DIR}
@@ -193,10 +189,6 @@ nextflow run germlineVC.nf -resume --genome_base ${genomebase} --tag latest -c n
 
 GERMLINE
 
- if [[ $queue != false ]]
-   then
-        COMM="${SUBMIT} -N ${project_name}_annotate_${run}"
- fi
  cat <<SOMATIC > ${SCRIPT_STEP_SOMATIC}
 # SAREK SOMATIC
 cd  ${WORK_DIR}
@@ -206,10 +198,6 @@ nextflow run  somaticVC.nf -resume --genome_base ${genomebase} --tag latest -c n
 
 SOMATIC
 
- if [[ $queue != false ]]
-   then
-        COMM="${SUBMIT} -N ${project_name}_multiqc_${run}"
- fi
  cat <<ANNOTATE > ${SCRIPT_STEP_ANNOTATE}
 # SAREK ANNOTATE 
 cd  ${WORK_DIR}
@@ -219,10 +207,6 @@ nextflow run annotate.nf -resume --genome_base ${genomebase} --tag latest -c nex
 
 ANNOTATE
 
-if [[ $queue != false ]]
-   then
-        COMM="${SUBMIT} -N ${project_name}_COPIE_RESULTS_${run}"
- fi
  cat <<MULTIQC > ${SCRIPT_STEP_MULTIQC}
 # SAREK MULTIQC
 cd  ${WORK_DIR}
@@ -271,12 +255,14 @@ function nxf_lunch_pipeline() {
    echo_green "SI ANNOTATE OK => SCRIPT_STEP_MUTIQC = ${SCRIPT_STEP_MULTIQC}"
    d=$(date)
    cd ${WORK_DIR}
-   if [[ $queue != false ]]
-   then
-   	${SUBMIT} -N ${project_name}_mapping_${run} ${SCRIPT_STEP_MAPPING}
-   else
-   	bash ${SCRIPT_STEP_MAPPING}
-   fi
+   ${COMM} ${SCRIPT_STEP_MAPPING}
+
+   #if [[ $queue != false ]]
+   #then
+   #	${SUBMIT} ${SCRIPT_STEP_MAPPING}
+   #else
+   #	bash ${SCRIPT_STEP_MAPPING}
+   #fi
 }
 
 
