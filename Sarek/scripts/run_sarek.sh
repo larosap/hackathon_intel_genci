@@ -1,10 +1,10 @@
 #!/bin/bash
 #set -eu
 #
-#  Copyright (c) 2018, U900, Institut Curie
-#  Copyright (c) 2018, Philippe La Rosa (Equipe HPC)
+#  Copyright (c) 2019, U900, Institut Curie
+#  Copyright (c) 2019, Philippe La Rosa (Equipe HPC)
 #
-# run_install.sh : This file is part of NGS=>Nextflow Pipeline
+# run_sarek.sh : This file is part of NGS=>Nextflow Pipeline
 #
 # Objectifs :
 # Generateur d'architecture et d'environnement (espace d'exec) et lancement
@@ -35,14 +35,21 @@
 #
 # Sorties :
 # Soumission au cluster via qsub, ou en local  :
-# affichage console (stdout) exemple pour le run V295 du projet SAREK :
-# run_main.sh : create_nxf_script for projet SAREK and run V295 :
-# /data/tmp/NGS_RUN_TEMP/SAREK_V295_1529940592001/SAREK.nf
-# make_run_pipeline_create_nxf_work_dir for projet SAREK and run V295
-# WORK_DIR = /data/tmp/NGS_RUN_TEMP/SAREK_V295_1529940592001 
-# REPORTING_DIR = /data/tmp/NGS_RUN_TEMP/SAREK_V295_1529940592001/results
-# make_run_pipeline_create_nxf_configs for projet SAREK and run mapping :
-#
+# affichage console (stdout) exemple pour le run TEST du projet SAREK :
+#### scripts/run_sarek.sh for projet SAREK-2.3 env: and run:TEST by plarosa
+#1) create_env
+#2) create_nxf_work_dir and configurations files
+#3) install_nxf_script
+#4) nxf_pipeline_nfcore-sarek
+#WORK_DIR = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631
+#RACINE_PIPELINES_DIR = /bioinfo/users/plarosa/projects/GIT/hackathon_intel_genci/script/pipelines/Sarek/ScLifeLab
+#CONFIG_NXF_PATH = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/conf
+#LOCAL_SCRIPTS (lancemment et enchainement automatique sur le cluster): 
+#SCRIPT_STEP_MAPPING = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/run_mapping.sh
+#SI MAPPING OK => SCRIPT_STEP_GERMLINE = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/run_germline.sh
+#SI GERMLINE OK => SCRIPT_STEP_SOMATIC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/run_somatic.sh
+#SI SOMATIC OK => SCRIPT_STEP_MUTIQC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/run_annotate.sh
+#SI ANNOTATE OK => SCRIPT_STEP_MUTIQC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571140311631/run_multiqc.sh
 
 SAREK_DEBUG=${SAREK_DEBUG:=0}; [[ "$SAREK_DEBUG" == 'x' ]] && set -x
 
@@ -162,15 +169,13 @@ function pipeline_create_nxf_work_dir() {
    cp -r ${RACINE_PIPELINES_DIR}/${CONFIGS_DIR} ${WORK_DIR}
    if [[ $queue != false ]]
    then
+        COMM="${SUBMIT}"
         eval "sed \"s!//queue = false!queue = '${queue}'!\" ${RACINE_PIPELINES_DIR}/${CONFIGS_DIR}/cluster.config > ${WORK_DIR}/${CONFIGS_DIR}/cluster.config"
    fi
+   [[ $EXECUTOR ]] && eval "sed -i \"s/A_CHANGER/${EXECUTOR}/\" ${WORK_DIR}/${CONFIGS_DIR}/cluster.config"
    cp -r ${RACINE_PIPELINES_DIR}/${ASSETS_DIR} ${WORK_DIR}
    cp ${RACINE_PIPELINES_DIR}/nextflow.config ${WORK_DIR}
    # creation scripts de lancement de nextflow
-   if [[ $queue != false ]]
-   then
-        COMM="${SUBMIT}"
-   fi
    cat <<MAPPING > ${SCRIPT_STEP_MAPPING}
 # SAREK MAPPING
 cd  ${WORK_DIR}
@@ -244,7 +249,6 @@ function nxf_lunch_pipeline() {
    echo " 4) nxf_pipeline_nfcore-sarek"
    
    echo_green "WORK_DIR = ${WORK_DIR}"
-   echo_green "LOCAL_SCRIPTS_PATH = ${LOCAL_SCRIPTS_PATH}"
    echo_green "RACINE_PIPELINES_DIR = ${RACINE_PIPELINES_DIR}"
    echo_green "CONFIG_NXF_PATH = ${WORK_DIR}/${CONFIGS_DIR}"
    echo_green "LOCAL_SCRIPTS (lancemment et enchainement automatique sur le cluster): "
@@ -256,13 +260,6 @@ function nxf_lunch_pipeline() {
    d=$(date)
    cd ${WORK_DIR}
    ${COMM} ${SCRIPT_STEP_MAPPING}
-
-   #if [[ $queue != false ]]
-   #then
-   #	${SUBMIT} ${SCRIPT_STEP_MAPPING}
-   #else
-   #	bash ${SCRIPT_STEP_MAPPING}
-   #fi
 }
 
 
@@ -277,7 +274,7 @@ name_end=$(nxf_date)
 date_run=$(get_date)
 
 ##
-echo_yellow "#### $0 for projet ${project_name} env:${env} and run:${run} by ${LOGNAME}"
+echo_yellow "#### $0 for projet ${project_name} and run:${run} by ${LOGNAME}"
 #
 # creation des variables d'environnement nécessaires au lancement du pipeline 
 pipeline_create_env
