@@ -120,6 +120,7 @@ Helpful contributors:
 * [Pall Olason](https://github.com/pallolason)
 * [Aron Skaftason](https://github.com/arontommi)
 * [Nilesh Tawari](https://github.com/nilesh-tawari)
+* [update by La Rosa Philippe hackathon_intel_genci](https://github.com/larosap)
 
 --------------------------------------------------------------------------------
 
