@@ -1,0 +1,244 @@
+<!doctype html>
+<!--
+  ~ Copyright 2013-2019, Centre for Genomic Regulation (CRG)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + prot + "code.jquery.com/jquery-latest.min.js' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "d3js.org/d3.v3.min.js' charset='utf-8' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "cdn.rawgit.com/nextflow-io/d3-timeline/82622c4cc35bac7283b3a317826b0709ac1ae476/src/d3-timeline.js' type='text/javascript' %3E%3C/script%3E"));
+</script>
+<style type="text/css">
+* {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.axis path,
+.axis line {
+fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+div#timeline g text {
+  font-size: 13px;
+}
+
+text.timeline-label {
+  font-size: 13px;
+}
+
+#timeline2 .axis {
+  transform: translate(0px,30px);
+  -ms-transform: translate(0px,30px); /* IE 9 */
+  -webkit-transform: translate(0px,30px); /* Safari and Chrome */
+  -o-transform: translate(0px,30px); /* Opera */
+  -moz-transform: translate(0px,30px); /* Firefox */
+}
+
+.coloredDiv {
+  height:20px; width:20px; float:left;
+}
+
+#footer {
+  padding-top: 3em; color: #bfbfbf; font-size: 13px;
+}
+
+#footer a:visited {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+var handler=null;
+// see https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c
+var colors = d3.scale.category20c().domain(d3.range(0,20)).range()
+
+function c0(index) { return "#9c9c9c"; }
+function c1(index) { return "#bdbdbd"; }
+function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
+
+var elapsed="7m 18s"
+var beginningMillis=1570796443381;
+var endingMillis=1570796881834;
+var data=[
+{"label": "CreateIntervalBeds (small.intervals)", "times": [{"starting_time": 1570796445951, "ending_time": 1570796480199, "color":c1(0)}, {"starting_time": 1570796480199, "ending_time": 1570796480284, "color":c2(0), "label": "34.3s \/ 0"}]},
+{"label": "RunSingleStrelka (9876T)", "times": [{"starting_time": 1570796446058, "ending_time": 1570796480579, "color":c1(1)}, {"starting_time": 1570796480579, "ending_time": 1570796487316, "color":c2(1), "label": "34.6s \/ 52.8 MB"}]},
+{"label": "RunSingleStrelka (1234N)", "times": [{"starting_time": 1570796446137, "ending_time": 1570796480737, "color":c1(1)}, {"starting_time": 1570796480737, "ending_time": 1570796492819, "color":c2(1), "label": "34.6s \/ 53.2 MB"}]},
+{"label": "RunSingleManta (1234N - Single Diploid)", "times": [{"starting_time": 1570796446206, "ending_time": 1570796480819, "color":c1(2)}, {"starting_time": 1570796480819, "ending_time": 1570796504889, "color":c2(2), "label": "1m 9s \/ 25.2 MB"}, {"starting_time": 1570796504889, "ending_time": 1570796515197, "color":c1(2)}]},
+{"label": "RunBcftoolsStats (Strelka_9876T_variants.vcf.gz)", "times": [{"starting_time": 1570796480967, "ending_time": 1570796515279, "color":c1(3)}, {"starting_time": 1570796515279, "ending_time": 1570796515498, "color":c2(3), "label": "34.3s \/ 0"}]},
+{"label": "RunVcftools (Strelka_9876T_variants.vcf.gz)", "times": [{"starting_time": 1570796481037, "ending_time": 1570796515293, "color":c1(4)}, {"starting_time": 1570796515293, "ending_time": 1570796515407, "color":c2(4), "label": "34.3s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (Strelka_1234N_variants.vcf.gz)", "times": [{"starting_time": 1570796481085, "ending_time": 1570796515317, "color":c1(3)}, {"starting_time": 1570796515317, "ending_time": 1570796515467, "color":c2(3), "label": "34.2s \/ 1.6 MB"}]},
+{"label": "RunVcftools (Strelka_1234N_variants.vcf.gz)", "times": [{"starting_time": 1570796481141, "ending_time": 1570796515342, "color":c1(4)}, {"starting_time": 1570796515342, "ending_time": 1570796515516, "color":c2(4), "label": "34.2s \/ 0"}]},
+{"label": "RunHaplotypecaller (1234N-1_1-200000)", "times": [{"starting_time": 1570796481203, "ending_time": 1570796515378, "color":c1(5)}, {"starting_time": 1570796515378, "ending_time": 1570796743332, "color":c2(5), "label": "4m 9s \/ 1.9 GB"}]},
+{"label": "RunHaplotypecaller (1234N-3_1-200000)", "times": [{"starting_time": 1570796481270, "ending_time": 1570796515386, "color":c1(5)}, {"starting_time": 1570796515386, "ending_time": 1570796570603, "color":c2(5), "label": "1m 9s \/ 1.8 GB"}]},
+{"label": "RunHaplotypecaller (1234N-X_1-200000)", "times": [{"starting_time": 1570796481323, "ending_time": 1570796515391, "color":c1(5)}, {"starting_time": 1570796515391, "ending_time": 1570796588506, "color":c2(5), "label": "1m 44s \/ 1.8 GB"}]},
+{"label": "RunHaplotypecaller (1234N-2_1-200000)", "times": [{"starting_time": 1570796481375, "ending_time": 1570796515397, "color":c1(5)}, {"starting_time": 1570796515397, "ending_time": 1570796778600, "color":c2(5), "label": "4m 54s \/ 1.8 GB"}]},
+{"label": "RunHaplotypecaller (1234N-11_1-3679)", "times": [{"starting_time": 1570796481432, "ending_time": 1570796515413, "color":c1(5)}, {"starting_time": 1570796515413, "ending_time": 1570796529241, "color":c2(5), "label": "34s \/ 649.5 MB"}]},
+{"label": "RunHaplotypecaller (1234N-8_1-1276)", "times": [{"starting_time": 1570796481493, "ending_time": 1570796515457, "color":c1(5)}, {"starting_time": 1570796515457, "ending_time": 1570796525121, "color":c2(5), "label": "34s \/ 610.9 MB"}]},
+{"label": "RunHaplotypecaller (9876T-2_1-200000)", "times": [{"starting_time": 1570796481548, "ending_time": 1570796515487, "color":c1(5)}, {"starting_time": 1570796515487, "ending_time": 1570796618689, "color":c2(5), "label": "2m 19s \/ 1.8 GB"}, {"starting_time": 1570796618689, "ending_time": 1570796620202, "color":c1(5)}]},
+{"label": "RunHaplotypecaller (9876T-1_1-200000)", "times": [{"starting_time": 1570796481609, "ending_time": 1570796515492, "color":c1(5)}, {"starting_time": 1570796515492, "ending_time": 1570796691225, "color":c2(5), "label": "3m 14s \/ 1.8 GB"}]},
+{"label": "RunHaplotypecaller (9876T-3_1-200000)", "times": [{"starting_time": 1570796481657, "ending_time": 1570796495195, "color":c1(5)}, {"starting_time": 1570796495195, "ending_time": 1570796532841, "color":c2(5), "label": "48.5s \/ 1.7 GB"}]},
+{"label": "RunHaplotypecaller (9876T-X_1-200000)", "times": [{"starting_time": 1570796481703, "ending_time": 1570796515503, "color":c1(5)}, {"starting_time": 1570796515503, "ending_time": 1570796545123, "color":c2(5), "label": "1m 9s \/ 1.8 GB"}, {"starting_time": 1570796545123, "ending_time": 1570796550248, "color":c1(5)}]},
+{"label": "RunHaplotypecaller (9876T-11_1-3679)", "times": [{"starting_time": 1570796481755, "ending_time": 1570796515513, "color":c1(5)}, {"starting_time": 1570796515513, "ending_time": 1570796526081, "color":c2(5), "label": "33.8s \/ 607.8 MB"}]},
+{"label": "RunHaplotypecaller (9876T-8_1-1276)", "times": [{"starting_time": 1570796481795, "ending_time": 1570796515545, "color":c1(5)}, {"starting_time": 1570796515545, "ending_time": 1570796525974, "color":c2(5), "label": "33.8s \/ 621 MB"}]},
+{"label": "RunVcftools (Manta_1234N.diploidSV.vcf.gz)", "times": [{"starting_time": 1570796515358, "ending_time": 1570796550277, "color":c1(4)}, {"starting_time": 1570796550277, "ending_time": 1570796550450, "color":c2(4), "label": "34.9s \/ 0"}]},
+{"label": "RunBcftoolsStats (Manta_1234N.diploidSV.vcf.gz)", "times": [{"starting_time": 1570796515438, "ending_time": 1570796550319, "color":c1(3)}, {"starting_time": 1570796550319, "ending_time": 1570796550460, "color":c2(3), "label": "34.9s \/ 1.6 MB"}]},
+{"label": "RunGenotypeGVCFs (1234N-11_1-3679)", "times": [{"starting_time": 1570796515558, "ending_time": 1570796550344, "color":c1(6)}, {"starting_time": 1570796550344, "ending_time": 1570796566572, "color":c2(6), "label": "34.8s \/ 604.8 MB"}]},
+{"label": "RunGenotypeGVCFs (1234N-8_1-1276)", "times": [{"starting_time": 1570796515627, "ending_time": 1570796550375, "color":c1(6)}, {"starting_time": 1570796550375, "ending_time": 1570796567649, "color":c2(6), "label": "34.8s \/ 614.6 MB"}]},
+{"label": "RunGenotypeGVCFs (9876T-11_1-3679)", "times": [{"starting_time": 1570796515689, "ending_time": 1570796550390, "color":c1(6)}, {"starting_time": 1570796550390, "ending_time": 1570796565745, "color":c2(6), "label": "34.7s \/ 625.4 MB"}]},
+{"label": "RunGenotypeGVCFs (9876T-8_1-1276)", "times": [{"starting_time": 1570796515744, "ending_time": 1570796550410, "color":c1(6)}, {"starting_time": 1570796550410, "ending_time": 1570796566537, "color":c2(6), "label": "34.7s \/ 612.4 MB"}]},
+{"label": "RunGenotypeGVCFs (9876T-3_1-200000)", "times": [{"starting_time": 1570796530298, "ending_time": 1570796535199, "color":c1(6)}, {"starting_time": 1570796535199, "ending_time": 1570796555747, "color":c2(6), "label": "34.9s \/ 605.9 MB"}, {"starting_time": 1570796555747, "ending_time": 1570796565199, "color":c1(6)}]},
+{"label": "RunGenotypeGVCFs (1234N-3_1-200000)", "times": [{"starting_time": 1570796550356, "ending_time": 1570796585221, "color":c1(6)}, {"starting_time": 1570796585221, "ending_time": 1570796605467, "color":c2(6), "label": "34.9s \/ 608.3 MB"}]},
+{"label": "RunGenotypeGVCFs (9876T-X_1-200000)", "times": [{"starting_time": 1570796550455, "ending_time": 1570796585244, "color":c1(6)}, {"starting_time": 1570796585244, "ending_time": 1570796604055, "color":c2(6), "label": "34.8s \/ 628 MB"}]},
+{"label": "RunGenotypeGVCFs (1234N-X_1-200000)", "times": [{"starting_time": 1570796585319, "ending_time": 1570796590199, "color":c1(6)}, {"starting_time": 1570796590199, "ending_time": 1570796608191, "color":c2(6), "label": "34.9s \/ 627.4 MB"}, {"starting_time": 1570796608191, "ending_time": 1570796620238, "color":c1(6)}]},
+{"label": "RunGenotypeGVCFs (9876T-2_1-200000)", "times": [{"starting_time": 1570796620337, "ending_time": 1570796625199, "color":c1(6)}, {"starting_time": 1570796625199, "ending_time": 1570796647891, "color":c2(6), "label": "34.9s \/ 606.9 MB"}, {"starting_time": 1570796647891, "ending_time": 1570796655203, "color":c1(6)}]},
+{"label": "RunGenotypeGVCFs (9876T-1_1-200000)", "times": [{"starting_time": 1570796675348, "ending_time": 1570796680201, "color":c1(6)}, {"starting_time": 1570796680201, "ending_time": 1570796701903, "color":c2(6), "label": "34.9s \/ 613.6 MB"}, {"starting_time": 1570796701903, "ending_time": 1570796710205, "color":c1(6)}]},
+{"label": "RunGenotypeGVCFs (1234N-1_1-200000)", "times": [{"starting_time": 1570796730281, "ending_time": 1570796735203, "color":c1(6)}, {"starting_time": 1570796735203, "ending_time": 1570796757487, "color":c2(6), "label": "34.9s \/ 607.3 MB"}, {"starting_time": 1570796757487, "ending_time": 1570796765208, "color":c1(6)}]},
+{"label": "RunGenotypeGVCFs (1234N-2_1-200000)", "times": [{"starting_time": 1570796775338, "ending_time": 1570796780205, "color":c1(6)}, {"starting_time": 1570796780205, "ending_time": 1570796801341, "color":c2(6), "label": "34.9s \/ 612.8 MB"}, {"starting_time": 1570796801341, "ending_time": 1570796810216, "color":c1(6)}]},
+{"label": "ConcatVCF (HaplotypeCallerGVCF-1234N)", "times": [{"starting_time": 1570796775387, "ending_time": 1570796780208, "color":c1(7)}, {"starting_time": 1570796780208, "ending_time": 1570796780978, "color":c2(7), "label": "4.8s \/ 3.3 MB"}]},
+{"label": "ConcatVCF (HaplotypeCallerGVCF-9876T)", "times": [{"starting_time": 1570796775441, "ending_time": 1570796780265, "color":c1(7)}, {"starting_time": 1570796780265, "ending_time": 1570796781515, "color":c2(7), "label": "4.8s \/ 3.4 MB"}]},
+{"label": "RunBcftoolsStats (haplotypecaller_1234N.g.vcf.gz)", "times": [{"starting_time": 1570796780323, "ending_time": 1570796815209, "color":c1(3)}, {"starting_time": 1570796815209, "ending_time": 1570796815369, "color":c2(3), "label": "34.9s \/ 1.6 MB"}]},
+{"label": "RunVcftools (haplotypecaller_1234N.g.vcf.gz)", "times": [{"starting_time": 1570796780356, "ending_time": 1570796815245, "color":c1(4)}, {"starting_time": 1570796815245, "ending_time": 1570796815504, "color":c2(4), "label": "34.9s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (haplotypecaller_9876T.g.vcf.gz)", "times": [{"starting_time": 1570796780393, "ending_time": 1570796815295, "color":c1(3)}, {"starting_time": 1570796815295, "ending_time": 1570796815458, "color":c2(3), "label": "34.9s \/ 1.6 MB"}]},
+{"label": "RunVcftools (haplotypecaller_9876T.g.vcf.gz)", "times": [{"starting_time": 1570796780445, "ending_time": 1570796815319, "color":c1(4)}, {"starting_time": 1570796815319, "ending_time": 1570796815498, "color":c2(4), "label": "34.9s \/ 1.6 MB"}]},
+{"label": "ConcatVCF (HaplotypeCaller-9876T)", "times": [{"starting_time": 1570796810388, "ending_time": 1570796845211, "color":c1(7)}, {"starting_time": 1570796845211, "ending_time": 1570796845562, "color":c2(7), "label": "34.8s \/ 3.3 MB"}]},
+{"label": "ConcatVCF (HaplotypeCaller-1234N)", "times": [{"starting_time": 1570796810431, "ending_time": 1570796845306, "color":c1(7)}, {"starting_time": 1570796845306, "ending_time": 1570796845766, "color":c2(7), "label": "34.9s \/ 3.4 MB"}]},
+{"label": "RunVcftools (HaplotypeCaller_9876T.vcf.gz)", "times": [{"starting_time": 1570796845354, "ending_time": 1570796880212, "color":c1(4)}, {"starting_time": 1570796880212, "ending_time": 1570796880406, "color":c2(4), "label": "34.9s \/ 0"}]},
+{"label": "RunBcftoolsStats (HaplotypeCaller_9876T.vcf.gz)", "times": [{"starting_time": 1570796845405, "ending_time": 1570796880251, "color":c1(3)}, {"starting_time": 1570796880251, "ending_time": 1570796880391, "color":c2(3), "label": "34.8s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (HaplotypeCaller_1234N.vcf.gz)", "times": [{"starting_time": 1570796845450, "ending_time": 1570796880263, "color":c1(3)}, {"starting_time": 1570796880263, "ending_time": 1570796880401, "color":c2(3), "label": "34.8s \/ 1.6 MB"}]},
+{"label": "RunVcftools (HaplotypeCaller_1234N.vcf.gz)", "times": [{"starting_time": 1570796845526, "ending_time": 1570796880278, "color":c1(4)}, {"starting_time": 1570796880278, "ending_time": 1570796880415, "color":c2(4), "label": "34.8s \/ 1.6 MB"}]}
+]
+
+
+function getTickFormat() {
+  var MIN = 1000 * 60
+  var HOUR = MIN * 60
+  var DAY = HOUR * 24
+  var delta = (endingMillis - beginningMillis)
+
+  if( delta < 2 * MIN ) {
+    return {
+      format: d3.time.format("%S"),
+      tickTime: d3.time.seconds,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * HOUR ) {
+    return {
+      format: d3.time.format("%M"),
+      tickTime: d3.time.minutes,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * DAY ) {
+    return {
+      format: d3.time.format("%H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 1,
+      tickSize: 6
+    }
+  }
+
+  if( delta <= 7 * DAY ) {
+    return {
+      format: d3.time.format("%b %e %H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 6,
+      tickSize: 6
+    }
+  }
+
+  return {
+    format: d3.time.format("%b %e"),
+    tickTime: d3.time.days,
+    tickInterval: 1,
+    tickSize: 6
+  }
+}
+
+function getLabelMargin(scale) {
+    $('<span class="labelSpan" style="display: none"></span>').appendTo('body');
+
+    var labelMargin = 0
+    $.each(data, function (key, value) {
+      labelMargin = Math.max(labelMargin, $('.labelSpan').html(value.label).width());
+    });
+
+    $('.labelSpan').remove();
+
+    return (labelMargin * scale);
+}
+
+function render() {
+  handler=null;
+  $("#timeline").empty()
+  $('#label_elapsed').text(elapsed)
+  $('#label_launch').text( d3.time.format('%d %b %Y %H:%M')(new Date(beginningMillis)) )
+
+  var width = $(window).width();
+  var chart = d3.timeline()
+    .stack() // toggles graph stacking
+    .margin({left:getLabelMargin(0.85), right:100, top:0, bottom:0})
+    .tickFormat( getTickFormat() )
+    .rowSeperators('#f5f5f5')
+    .showTimeAxisTick()
+    ;
+  var svg = d3.select("#timeline").append("svg").attr("width", width).datum(data).call(chart);
+}
+
+function hrz() {
+if( handler != null ) clearTimeout(handler)
+  handler = setTimeout(render, 150);
+}
+
+$(document).ready(render)
+$(window).resize(hrz); // resize the applet on window resize
+</script>
+</head>
+
+<body>
+<div>
+  <h3>Processes execution timeline</h3>
+  <p>
+    Launch time: <span id='label_launch'> </span><br>
+    Elapsed time: <span id='label_elapsed'> </span><br>
+    Legend: job wall time / memory usage (RAM) <span id='label_legend'> </span>
+  </p>
+  <div id="timeline"></div>
+</div>
+
+<div id='footer'>
+  Created with Nextflow -- <a href='http://www.nextflow.io' target='_blank'>http://nextflow.io</a>
+</div>
+
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Clink href='" + prot + "fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css' %3E%3C/link%3E"));
+</script>
+</body>
+</html>

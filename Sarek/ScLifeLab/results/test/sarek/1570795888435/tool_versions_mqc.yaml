@@ -1,0 +1,29 @@
+No such file: v_picard.txt
+No such file: v_allelecount.txt
+No such file: v_ascat.txt
+No such file: v_r.txt
+
+id: 'Sarek'
+order: -1000
+section_href: 'https://github.com/SciLifeLab/Sarek'
+plot_type: 'html'
+description: 'tool versions are collected at run time from output.'
+data: |
+  <dl class="dl-horizontal" style="margin-bottom:0;">
+
+        <dt>Sarek</dt><dd>v 2.3</dd>
+        <dt>Nextflow</dt><dd>v 19.04.0</dd>
+        <dt>bcftools</dt><dd>v 1.9</dd>
+        <dt>BWA</dt><dd>v 0.7.17-r1188</dd>
+        <dt>FastQC</dt><dd>v 0.11.8</dd>
+        <dt>FreeBayes</dt><dd>v 1.2.0</dd>
+        <dt>GATK</dt><dd>v 4.1.1.0</dd>
+        <dt>htslib</dt><dd>v 1.9</dd>
+        <dt>Manta</dt><dd>v 1.5.0</dd>
+        <dt>MultiQC</dt><dd>v 1.7</dd>
+        <dt>Qualimap</dt><dd>v 2.2.2-dev</dd>
+        <dt>samtools</dt><dd>v 1.9</dd>
+        <dt>SnpEff</dt><dd>v 4.3t</dd>
+        <dt>Strelka</dt><dd>v 2.9.10</dd>
+        <dt>vcftools</dt><dd>v 0.1.16</dd>
+    </dl>

@@ -1,0 +1,120 @@
+[2019-10-11 13:27:32,801] multiqc                                            [DEBUG  ]  No MultiQC config found: /opt/conda/envs/sarek-2.3/lib/python2.7/site-packages/multiqc_config.yaml
+[2019-10-11 13:27:32,821] multiqc                                            [DEBUG  ]  No MultiQC config found: /data/users/plarosa/.multiqc_config.yaml
+[2019-10-11 13:27:32,826] multiqc                                            [DEBUG  ]  Loading config settings from: multiqc_config.yaml
+[2019-10-11 13:27:32,826] multiqc                                            [DEBUG  ]  New config 'custom_logo_url': http://opensource.scilifelab.se/projects/sarek
+[2019-10-11 13:27:32,829] multiqc                                            [DEBUG  ]  New config 'custom_logo': /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/docs/images/Sarek_no_Border.png
+[2019-10-11 13:27:32,829] multiqc                                            [DEBUG  ]  New config 'custom_logo_title': Sarek
+[2019-10-11 13:27:32,829] multiqc                                            [DEBUG  ]  New config 'top_modules': ['fastqc', 'picard', 'samtools', 'qualimap', 'bcftools', 'vcftools', 'snpeff']
+[2019-10-11 13:27:32,829] multiqc                                            [DEBUG  ]  New config 'report_header_info': [{'Contact Name': None}, {'Contact E-mail': None}, {'Genome': 'smallGRCh37'}]
+[2019-10-11 13:27:32,830] multiqc                                            [DEBUG  ]  Command used: /opt/conda/envs/sarek-2.3/bin/multiqc -f -v .
+[2019-10-11 13:27:37,916] multiqc                                            [DEBUG  ]  Could not connect to multiqc.info for version check: <urlopen error timed out>
+[2019-10-11 13:27:37,916] multiqc                                            [INFO   ]  This is MultiQC v1.7
+[2019-10-11 13:27:37,916] multiqc                                            [DEBUG  ]  Command     : /opt/conda/envs/sarek-2.3/bin/multiqc -f -v .
+[2019-10-11 13:27:37,917] multiqc                                            [DEBUG  ]  Working dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925
+[2019-10-11 13:27:37,917] multiqc                                            [INFO   ]  Template    : default
+[2019-10-11 13:27:37,917] multiqc                                            [INFO   ]  Searching '.'
+[2019-10-11 13:27:37,918] multiqc                                            [DEBUG  ]  Analysing modules: fastqc, picard, samtools, qualimap, bcftools, vcftools, snpeff, custom_content, conpair, peddy, methylQA, phantompeakqualtools, preseq, quast, qorts, rna_seqc, rsem, rseqc, busco, goleft_indexcov, disambiguate, supernova, deeptools, sargasso, verifybamid, mirtrace, happy, homer, macs2, theta2, gatk, htseq, featureCounts, dedup, damageprofiler, prokka, samblaster, bamtools, jellyfish, longranger, stacks, bbmap, bismark, biscuit, hicexplorer, hicup, hicpro, salmon, kallisto, slamdunk, star, hisat2, tophat, bowtie2, bowtie1, kat, leehom, adapterRemoval, clipandmerge, cutadapt, flexbar, trimmomatic, skewer, sortmerna, biobloomtools, fastq_screen, afterqc, fastp, minionqc, clusterflow, bcl2fastq, interop, flash
+[2019-10-11 13:27:37,918] multiqc                                            [DEBUG  ]  Using temporary directory for creating report: /tmp/tmp875QjC
+[2019-10-11 13:27:38,371] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890912_1_fastqc.html
+[2019-10-11 13:27:39,284] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890912_2_fastqc.html
+[2019-10-11 13:27:39,692] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890916_1_fastqc.html
+[2019-10-11 13:27:42,108] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890849_1_fastqc.html
+[2019-10-11 13:27:43,020] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890875_2_fastqc.html
+[2019-10-11 13:27:44,316] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890875_1_fastqc.html
+[2019-10-11 13:27:44,904] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890916_2_fastqc.html
+[2019-10-11 13:27:45,362] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: SRR7890849_2_fastqc.html
+[2019-10-11 13:27:47,999] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:27:52,149] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:27:56,515] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:28:00,819] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:28:05,196] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:28:09,428] multiqc                                            [DEBUG  ]  Ignoring file as matched an ignore pattern: qualimapReport.html
+[2019-10-11 13:28:14,847] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 8 reports
+[2019-10-11 13:28:15,781] multiqc.modules.picard.picard                      [INFO   ]  Found 2 MarkDuplicates reports
+[2019-10-11 13:28:15,824] multiqc.modules.samtools.samtools                  [INFO   ]  Found 2 stats reports
+[2019-10-11 13:28:16,447] multiqc.modules.qualimap.QM_BamQC                  [DEBUG  ]  Using default Qualimap thresholds: 1, 5, 10, 30, 50
+[2019-10-11 13:28:16,545] multiqc.modules.qualimap.qualimap                  [INFO   ]  Found 6 BamQC reports
+[2019-10-11 13:28:16,608] multiqc.modules.bcftools.bcftools                  [INFO   ]  Found 13 stats reports
+[2019-10-11 13:28:16,707] multiqc.modules.vcftools.relatedness2              [INFO   ]  Found 13 valid relatedness2 matrices
+[2019-10-11 13:28:16,868] multiqc.modules.vcftools.vcftools                  [INFO   ]  Found 13 TsTv.count reports
+[2019-10-11 13:28:17,000] multiqc.modules.vcftools.vcftools                  [INFO   ]  Found 13 TsTv.qual reports
+[2019-10-11 13:28:17,032] multiqc.modules.snpeff.snpeff                      [INFO   ]  Found 7 reports
+[2019-10-11 13:28:17,071] multiqc.modules.custom_content.custom_content      [INFO   ]  Sarek: Found 1 sample (html)
+[2019-10-11 13:28:17,071] multiqc.modules.custom_content.custom_content      [INFO   ]  Sarek: Found 646 samples (html)
+[2019-10-11 13:28:17,076] multiqc                                            [DEBUG  ]  No samples found: conpair
+[2019-10-11 13:28:17,081] multiqc                                            [DEBUG  ]  No samples found: peddy
+[2019-10-11 13:28:17,085] multiqc                                            [DEBUG  ]  No samples found: methylQA
+[2019-10-11 13:28:17,089] multiqc                                            [DEBUG  ]  No samples found: phantompeakqualtools
+[2019-10-11 13:28:17,094] multiqc                                            [DEBUG  ]  No samples found: preseq
+[2019-10-11 13:28:17,099] multiqc                                            [DEBUG  ]  No samples found: quast
+[2019-10-11 13:28:17,103] multiqc                                            [DEBUG  ]  No samples found: qorts
+[2019-10-11 13:28:17,106] multiqc                                            [DEBUG  ]  No samples found: rna_seqc
+[2019-10-11 13:28:17,111] multiqc                                            [DEBUG  ]  No samples found: rsem
+[2019-10-11 13:28:17,116] multiqc                                            [DEBUG  ]  No samples found: rseqc
+[2019-10-11 13:28:17,120] multiqc                                            [DEBUG  ]  No samples found: busco
+[2019-10-11 13:28:17,125] multiqc                                            [DEBUG  ]  No samples found: goleft_indexcov
+[2019-10-11 13:28:17,129] multiqc                                            [DEBUG  ]  No samples found: disambiguate
+[2019-10-11 13:28:17,133] multiqc                                            [DEBUG  ]  No samples found: supernova
+[2019-10-11 13:28:17,138] multiqc                                            [DEBUG  ]  No samples found: deeptools
+[2019-10-11 13:28:17,143] multiqc                                            [DEBUG  ]  No samples found: sargasso
+[2019-10-11 13:28:17,147] multiqc                                            [DEBUG  ]  No samples found: verifybamid
+[2019-10-11 13:28:17,152] multiqc                                            [DEBUG  ]  No samples found: mirtrace
+[2019-10-11 13:28:17,156] multiqc                                            [DEBUG  ]  No samples found: happy
+[2019-10-11 13:28:17,161] multiqc                                            [DEBUG  ]  No samples found: homer
+[2019-10-11 13:28:17,165] multiqc                                            [DEBUG  ]  No samples found: macs2
+[2019-10-11 13:28:17,169] multiqc                                            [DEBUG  ]  No samples found: theta2
+[2019-10-11 13:28:17,174] multiqc                                            [DEBUG  ]  No samples found: gatk
+[2019-10-11 13:28:17,179] multiqc                                            [DEBUG  ]  No samples found: htseq
+[2019-10-11 13:28:17,203] multiqc                                            [DEBUG  ]  No samples found: featureCounts
+[2019-10-11 13:28:17,208] multiqc                                            [DEBUG  ]  No samples found: dedup
+[2019-10-11 13:28:17,213] multiqc                                            [DEBUG  ]  No samples found: damageprofiler
+[2019-10-11 13:28:17,218] multiqc                                            [DEBUG  ]  No samples found: prokka
+[2019-10-11 13:28:17,224] multiqc                                            [DEBUG  ]  No samples found: samblaster
+[2019-10-11 13:28:17,229] multiqc                                            [DEBUG  ]  No samples found: bamtools
+[2019-10-11 13:28:17,234] multiqc                                            [DEBUG  ]  No samples found: jellyfish
+[2019-10-11 13:28:17,239] multiqc                                            [DEBUG  ]  No samples found: longranger
+[2019-10-11 13:28:17,244] multiqc                                            [DEBUG  ]  No samples found: stacks
+[2019-10-11 13:28:17,251] multiqc                                            [DEBUG  ]  No samples found: bbmap
+[2019-10-11 13:28:17,256] multiqc                                            [DEBUG  ]  No samples found: bismark
+[2019-10-11 13:28:17,260] multiqc                                            [DEBUG  ]  No samples found: biscuit
+[2019-10-11 13:28:17,264] multiqc                                            [DEBUG  ]  No samples found: hicexplorer
+[2019-10-11 13:28:17,268] multiqc                                            [DEBUG  ]  No samples found: hicup
+[2019-10-11 13:28:17,272] multiqc                                            [DEBUG  ]  No samples found: hicpro
+[2019-10-11 13:28:17,276] multiqc                                            [DEBUG  ]  No samples found: salmon
+[2019-10-11 13:28:17,281] multiqc                                            [DEBUG  ]  No samples found: kallisto
+[2019-10-11 13:28:17,285] multiqc                                            [DEBUG  ]  No samples found: slamdunk
+[2019-10-11 13:28:17,290] multiqc                                            [DEBUG  ]  No samples found: star
+[2019-10-11 13:28:17,294] multiqc                                            [DEBUG  ]  No samples found: hisat2
+[2019-10-11 13:28:17,298] multiqc                                            [DEBUG  ]  No samples found: tophat
+[2019-10-11 13:28:17,303] multiqc                                            [DEBUG  ]  No samples found: bowtie2
+[2019-10-11 13:28:17,306] multiqc                                            [DEBUG  ]  No samples found: bowtie1
+[2019-10-11 13:28:17,310] multiqc                                            [DEBUG  ]  No samples found: kat
+[2019-10-11 13:28:17,314] multiqc                                            [DEBUG  ]  No samples found: leehom
+[2019-10-11 13:28:17,319] multiqc                                            [DEBUG  ]  No samples found: adapterRemoval
+[2019-10-11 13:28:17,322] multiqc                                            [DEBUG  ]  No samples found: clipandmerge
+[2019-10-11 13:28:17,326] multiqc                                            [DEBUG  ]  No samples found: cutadapt
+[2019-10-11 13:28:17,331] multiqc                                            [DEBUG  ]  No samples found: flexbar
+[2019-10-11 13:28:17,335] multiqc                                            [DEBUG  ]  No samples found: trimmomatic
+[2019-10-11 13:28:17,339] multiqc                                            [DEBUG  ]  No samples found: skewer
+[2019-10-11 13:28:17,343] multiqc                                            [DEBUG  ]  No samples found: sortmerna
+[2019-10-11 13:28:17,349] multiqc                                            [DEBUG  ]  No samples found: biobloomtools
+[2019-10-11 13:28:17,354] multiqc                                            [DEBUG  ]  No samples found: fastq_screen
+[2019-10-11 13:28:17,359] multiqc                                            [DEBUG  ]  No samples found: afterqc
+[2019-10-11 13:28:17,364] multiqc                                            [DEBUG  ]  No samples found: fastp
+[2019-10-11 13:28:17,369] multiqc                                            [DEBUG  ]  No samples found: minionqc
+[2019-10-11 13:28:17,374] multiqc                                            [DEBUG  ]  No samples found: clusterflow
+[2019-10-11 13:28:17,379] multiqc                                            [DEBUG  ]  No samples found: bcl2fastq
+[2019-10-11 13:28:17,384] multiqc                                            [DEBUG  ]  No samples found: interop
+[2019-10-11 13:28:17,390] multiqc                                            [DEBUG  ]  No samples found: flash
+[2019-10-11 13:28:17,481] multiqc                                            [INFO   ]  Compressing plot data
+[2019-10-11 13:28:18,766] multiqc                                            [INFO   ]  Report      : multiqc_report.html
+[2019-10-11 13:28:18,766] multiqc                                            [INFO   ]  Data        : multiqc_data
+[2019-10-11 13:28:18,769] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_data.json' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,802] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_sources.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,810] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_general_stats.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,818] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_snpeff.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,824] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_bcftools_stats.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,831] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_samtools_stats.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,838] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_picard_dups.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:18,845] multiqc                                            [DEBUG  ]  Moving data file from '/tmp/tmp875QjC/multiqc_data/multiqc_fastqc.txt' to '/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work/d2/a184a2bbf28728e51b4b47f7c97925/multiqc_data'
+[2019-10-11 13:28:19,026] multiqc                                            [INFO   ]  MultiQC complete

@@ -1,0 +1,226 @@
+<!doctype html>
+<!--
+  ~ Copyright 2013-2019, Centre for Genomic Regulation (CRG)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + prot + "code.jquery.com/jquery-latest.min.js' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "d3js.org/d3.v3.min.js' charset='utf-8' type='text/javascript' %3E%3C/script%3E"));
+document.write(unescape("%3Cscript src='" + prot + "cdn.rawgit.com/nextflow-io/d3-timeline/82622c4cc35bac7283b3a317826b0709ac1ae476/src/d3-timeline.js' type='text/javascript' %3E%3C/script%3E"));
+</script>
+<style type="text/css">
+* {
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.axis path,
+.axis line {
+fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-size: 10px;
+}
+
+div#timeline g text {
+  font-size: 13px;
+}
+
+text.timeline-label {
+  font-size: 13px;
+}
+
+#timeline2 .axis {
+  transform: translate(0px,30px);
+  -ms-transform: translate(0px,30px); /* IE 9 */
+  -webkit-transform: translate(0px,30px); /* Safari and Chrome */
+  -o-transform: translate(0px,30px); /* Opera */
+  -moz-transform: translate(0px,30px); /* Firefox */
+}
+
+.coloredDiv {
+  height:20px; width:20px; float:left;
+}
+
+#footer {
+  padding-top: 3em; color: #bfbfbf; font-size: 13px;
+}
+
+#footer a:visited {
+  color: #bfbfbf;
+  text-decoration: underline;
+}
+</style>
+<script type="text/javascript">
+var handler=null;
+// see https://github.com/mbostock/d3/wiki/Ordinal-Scales#category20c
+var colors = d3.scale.category20c().domain(d3.range(0,20)).range()
+
+function c0(index) { return "#9c9c9c"; }
+function c1(index) { return "#bdbdbd"; }
+function c2(index) { return colors[index % 16]; } // <-- note: uses only the first 16 colors
+
+var elapsed="1m 54s"
+var beginningMillis=1571145332655;
+var endingMillis=1571145446890;
+var data=[
+{"label": "RunVcftools (1234 - haplotypecaller - HaplotypeCaller_9876T.vcf.gz)", "times": [{"starting_time": 1571145335339, "ending_time": 1571145369538, "color":c1(0)}, {"starting_time": 1571145369538, "ending_time": 1571145369668, "color":c2(0), "label": "34.2s \/ 1.6 MB"}]},
+{"label": "RunVcftools (1234 - haplotypecaller - HaplotypeCaller_1234N.vcf.gz)", "times": [{"starting_time": 1571145335497, "ending_time": 1571145369613, "color":c1(0)}, {"starting_time": 1571145369613, "ending_time": 1571145369834, "color":c2(0), "label": "34.1s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - HaplotypeCaller_1234N.vcf.gz)", "times": [{"starting_time": 1571145335582, "ending_time": 1571145369688, "color":c1(1)}, {"starting_time": 1571145369688, "ending_time": 1571145369822, "color":c2(1), "label": "34.1s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - HaplotypeCaller_9876T.vcf.gz)", "times": [{"starting_time": 1571145335671, "ending_time": 1571145369730, "color":c1(1)}, {"starting_time": 1571145369730, "ending_time": 1571145369865, "color":c2(1), "label": "34.1s \/ 1.6 MB"}]},
+{"label": "RunVcftools (1234 - mutect2 - MuTect2_9876T_vs_1234N.vcf.gz)", "times": [{"starting_time": 1571145335730, "ending_time": 1571145344546, "color":c1(0)}, {"starting_time": 1571145344546, "ending_time": 1571145344722, "color":c2(0), "label": "13.8s \/ 1.6 MB"}, {"starting_time": 1571145344722, "ending_time": 1571145349539, "color":c1(0)}]},
+{"label": "RunVcftools (1234 - strelka - Strelka_9876T_variants.vcf.gz)", "times": [{"starting_time": 1571145335848, "ending_time": 1571145369761, "color":c1(0)}, {"starting_time": 1571145369761, "ending_time": 1571145369901, "color":c2(0), "label": "33.9s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - Strelka_9876T_variants.vcf.gz)", "times": [{"starting_time": 1571145335894, "ending_time": 1571145369829, "color":c1(1)}, {"starting_time": 1571145369829, "ending_time": 1571145369992, "color":c2(1), "label": "33.9s \/ 1.6 MB"}]},
+{"label": "RunVcftools (1234 - strelka - Strelka_1234N_variants.vcf.gz)", "times": [{"starting_time": 1571145335959, "ending_time": 1571145369863, "color":c1(0)}, {"starting_time": 1571145369863, "ending_time": 1571145369939, "color":c2(0), "label": "33.9s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - MuTect2_9876T_vs_1234N.vcf.gz)", "times": [{"starting_time": 1571145336015, "ending_time": 1571145369912, "color":c1(1)}, {"starting_time": 1571145369912, "ending_time": 1571145370089, "color":c2(1), "label": "33.9s \/ 1.6 MB"}]},
+{"label": "RunVcftools (1234 - strelka - Strelka_9876T_vs_1234N_somatic_snvs.vcf.gz)", "times": [{"starting_time": 1571145336089, "ending_time": 1571145369940, "color":c1(0)}, {"starting_time": 1571145369940, "ending_time": 1571145370125, "color":c2(0), "label": "33.9s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - Strelka_1234N_variants.vcf.gz)", "times": [{"starting_time": 1571145336150, "ending_time": 1571145369982, "color":c1(1)}, {"starting_time": 1571145369982, "ending_time": 1571145370092, "color":c2(1), "label": "33.8s \/ 1.6 MB"}]},
+{"label": "RunVcftools (1234 - strelka - Strelka_9876T_vs_1234N_somatic_indels.vcf.gz)", "times": [{"starting_time": 1571145336210, "ending_time": 1571145370014, "color":c1(0)}, {"starting_time": 1571145370014, "ending_time": 1571145370095, "color":c2(0), "label": "33.8s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - Strelka_9876T_vs_1234N_somatic_snvs.vcf.gz)", "times": [{"starting_time": 1571145336275, "ending_time": 1571145370059, "color":c1(1)}, {"starting_time": 1571145370059, "ending_time": 1571145370188, "color":c2(1), "label": "33.8s \/ 1.6 MB"}]},
+{"label": "RunBcftoolsStats (1234 - Strelka_9876T_vs_1234N_somatic_indels.vcf.gz)", "times": [{"starting_time": 1571145336318, "ending_time": 1571145370087, "color":c1(1)}, {"starting_time": 1571145370087, "ending_time": 1571145370210, "color":c2(1), "label": "33.8s \/ 1.6 MB"}]},
+{"label": "RunSnpeff (1234 - haplotypecaller - HaplotypeCaller_1234N.vcf.gz)", "times": [{"starting_time": 1571145336377, "ending_time": 1571145370116, "color":c1(2)}, {"starting_time": 1571145370116, "ending_time": 1571145435954, "color":c2(2), "label": "1m 43s \/ 2.1 GB"}, {"starting_time": 1571145435954, "ending_time": 1571145439540, "color":c1(2)}]},
+{"label": "RunSnpeff (1234 - mutect2 - MuTect2_9876T_vs_1234N.vcf.gz)", "times": [{"starting_time": 1571145336466, "ending_time": 1571145370121, "color":c1(2)}, {"starting_time": 1571145370121, "ending_time": 1571145433396, "color":c2(2), "label": "1m 43s \/ 2.1 GB"}, {"starting_time": 1571145433396, "ending_time": 1571145439604, "color":c1(2)}]},
+{"label": "RunSnpeff (1234 - haplotypecaller - HaplotypeCaller_9876T.vcf.gz)", "times": [{"starting_time": 1571145336516, "ending_time": 1571145370133, "color":c1(2)}, {"starting_time": 1571145370133, "ending_time": 1571145441716, "color":c2(2), "label": "1m 43s \/ 2.1 GB"}]},
+{"label": "RunSnpeff (1234 - strelka - Strelka_1234N_variants.vcf.gz)", "times": [{"starting_time": 1571145336583, "ending_time": 1571145370138, "color":c1(2)}, {"starting_time": 1571145370138, "ending_time": 1571145440760, "color":c2(2), "label": "1m 43s \/ 2.1 GB"}]},
+{"label": "RunSnpeff (1234 - strelka - Strelka_9876T_variants.vcf.gz)", "times": [{"starting_time": 1571145336666, "ending_time": 1571145370143, "color":c1(2)}, {"starting_time": 1571145370143, "ending_time": 1571145440756, "color":c2(2), "label": "1m 43s \/ 2.1 GB"}]},
+{"label": "RunSnpeff (1234 - strelka - Strelka_9876T_vs_1234N_somatic_indels.vcf.gz)", "times": [{"starting_time": 1571145336710, "ending_time": 1571145370148, "color":c1(2)}, {"starting_time": 1571145370148, "ending_time": 1571145434620, "color":c2(2), "label": "1m 43s \/ 2.2 GB"}, {"starting_time": 1571145434620, "ending_time": 1571145439731, "color":c1(2)}]},
+{"label": "RunSnpeff (1234 - strelka - Strelka_9876T_vs_1234N_somatic_snvs.vcf.gz)", "times": [{"starting_time": 1571145336761, "ending_time": 1571145370162, "color":c1(2)}, {"starting_time": 1571145370162, "ending_time": 1571145426237, "color":c2(2), "label": "1m 8s \/ 2.1 GB"}]},
+{"label": "CompressVCF (1234 - snpEff - Strelka_9876T_vs_1234N_somatic_snvs_snpEff.ann.vcf)", "times": [{"starting_time": 1571145404763, "ending_time": 1571145439752, "color":c1(3)}, {"starting_time": 1571145439752, "ending_time": 1571145439843, "color":c2(3), "label": "35s \/ 0"}]},
+{"label": "CompressVCF (1234 - snpEff - HaplotypeCaller_1234N_snpEff.ann.vcf)", "times": [{"starting_time": 1571145439710, "ending_time": 1571145444538, "color":c1(3)}, {"starting_time": 1571145444538, "ending_time": 1571145444629, "color":c2(3), "label": "4.8s \/ 0"}]},
+{"label": "CompressVCF (1234 - snpEff - MuTect2_9876T_vs_1234N_snpEff.ann.vcf)", "times": [{"starting_time": 1571145439851, "ending_time": 1571145444575, "color":c1(3)}, {"starting_time": 1571145444575, "ending_time": 1571145444670, "color":c2(3), "label": "4.7s \/ 0"}]},
+{"label": "CompressVCF (1234 - snpEff - HaplotypeCaller_9876T_snpEff.ann.vcf)", "times": [{"starting_time": 1571145439888, "ending_time": 1571145444605, "color":c1(3)}, {"starting_time": 1571145444605, "ending_time": 1571145444687, "color":c2(3), "label": "4.7s \/ 1.6 MB"}]},
+{"label": "CompressVCF (1234 - snpEff - Strelka_1234N_variants_snpEff.ann.vcf)", "times": [{"starting_time": 1571145439934, "ending_time": 1571145444634, "color":c1(3)}, {"starting_time": 1571145444634, "ending_time": 1571145444691, "color":c2(3), "label": "4.7s \/ 1.6 MB"}]},
+{"label": "CompressVCF (1234 - snpEff - Strelka_9876T_variants_snpEff.ann.vcf)", "times": [{"starting_time": 1571145439993, "ending_time": 1571145444661, "color":c1(3)}, {"starting_time": 1571145444661, "ending_time": 1571145444714, "color":c2(3), "label": "4.7s \/ 0"}]},
+{"label": "CompressVCF (1234 - snpEff - Strelka_9876T_vs_1234N_somatic_indels_snpEff.ann.vcf)", "times": [{"starting_time": 1571145440035, "ending_time": 1571145444704, "color":c1(3)}, {"starting_time": 1571145444704, "ending_time": 1571145444804, "color":c2(3), "label": "4.7s \/ 1.6 MB"}]}
+]
+
+
+function getTickFormat() {
+  var MIN = 1000 * 60
+  var HOUR = MIN * 60
+  var DAY = HOUR * 24
+  var delta = (endingMillis - beginningMillis)
+
+  if( delta < 2 * MIN ) {
+    return {
+      format: d3.time.format("%S"),
+      tickTime: d3.time.seconds,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * HOUR ) {
+    return {
+      format: d3.time.format("%M"),
+      tickTime: d3.time.minutes,
+      tickInterval: 5,
+      tickSize: 6
+    }
+  }
+
+  if( delta < 2 * DAY ) {
+    return {
+      format: d3.time.format("%H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 1,
+      tickSize: 6
+    }
+  }
+
+  if( delta <= 7 * DAY ) {
+    return {
+      format: d3.time.format("%b %e %H:%M"),
+      tickTime: d3.time.hours,
+      tickInterval: 6,
+      tickSize: 6
+    }
+  }
+
+  return {
+    format: d3.time.format("%b %e"),
+    tickTime: d3.time.days,
+    tickInterval: 1,
+    tickSize: 6
+  }
+}
+
+function getLabelMargin(scale) {
+    $('<span class="labelSpan" style="display: none"></span>').appendTo('body');
+
+    var labelMargin = 0
+    $.each(data, function (key, value) {
+      labelMargin = Math.max(labelMargin, $('.labelSpan').html(value.label).width());
+    });
+
+    $('.labelSpan').remove();
+
+    return (labelMargin * scale);
+}
+
+function render() {
+  handler=null;
+  $("#timeline").empty()
+  $('#label_elapsed').text(elapsed)
+  $('#label_launch').text( d3.time.format('%d %b %Y %H:%M')(new Date(beginningMillis)) )
+
+  var width = $(window).width();
+  var chart = d3.timeline()
+    .stack() // toggles graph stacking
+    .margin({left:getLabelMargin(0.85), right:100, top:0, bottom:0})
+    .tickFormat( getTickFormat() )
+    .rowSeperators('#f5f5f5')
+    .showTimeAxisTick()
+    ;
+  var svg = d3.select("#timeline").append("svg").attr("width", width).datum(data).call(chart);
+}
+
+function hrz() {
+if( handler != null ) clearTimeout(handler)
+  handler = setTimeout(render, 150);
+}
+
+$(document).ready(render)
+$(window).resize(hrz); // resize the applet on window resize
+</script>
+</head>
+
+<body>
+<div>
+  <h3>Processes execution timeline</h3>
+  <p>
+    Launch time: <span id='label_launch'> </span><br>
+    Elapsed time: <span id='label_elapsed'> </span><br>
+    Legend: job wall time / memory usage (RAM) <span id='label_legend'> </span>
+  </p>
+  <div id="timeline"></div>
+</div>
+
+<div id='footer'>
+  Created with Nextflow -- <a href='http://www.nextflow.io' target='_blank'>http://nextflow.io</a>
+</div>
+
+<script type="text/javascript">
+var prot = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Clink href='" + prot + "fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css' %3E%3C/link%3E"));
+</script>
+</body>
+</html>

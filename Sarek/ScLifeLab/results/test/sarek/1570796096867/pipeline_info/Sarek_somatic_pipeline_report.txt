@@ -1,0 +1,54 @@
+========================================
+ nf-core/sarek v2.3
+========================================
+Run Name: deadly_ptolemy
+
+## nf-core/sarek execution completed successfully! ##
+
+
+The workflow was completed at Fri Oct 11 14:40:12 CEST 2019 (duration: 11m 18s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow run somaticVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step somatic --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,cluster -with-trace Reports/pipeline_info/Sarek_somatic_trace.csv -with-report Reports/pipeline_info/Sarek_somatic_report.html -with-timeline Reports/pipeline_info/Sarek_somatic_timeline.html -with-dag Reports/pipeline_info/Sarek_somatic_DAG.pdf
+
+
+
+Pipeline Configuration:
+-----------------------
+ - Run Name: deadly_ptolemy
+ - Sample File: Preprocessing/Recalibrated/recalibrated.tsv
+ - Genome: smallGRCh37
+ - Genome Base: References/smallGRCh37
+ - Sequencing Center: SEQC-II Consortium
+ - Target BED: Sarek-data/testdata/target.bed
+ - Step: somatic
+ - Tools: freebayes, haplotypecaller, manta, mutect2, strelka
+ - GVCF: Yes
+ - Strelka BP: Yes
+ - Sequenced by: SEQC-II Consortium
+ - Max Resources: 128 GB memory, 16 cpus, 10d time per job
+ - Container: singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Output dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570796096867/Reports
+ - Launch dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570796096867
+ - Working dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570796096867/work
+ - Script dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570796096867
+ - User: plarosa
+ - acLoci: References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci
+ - acLociGC: References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci.gc
+ - dbsnp: References/smallGRCh37/dbsnp_138.b37.small.vcf
+ - intervals: References/smallGRCh37/small.intervals
+ - Config Profile: singularityPath,cluster
+ - Duration: 11m 18s
+ - Date Started: Fri Oct 11 14:28:54 CEST 2019
+ - Date Completed: Fri Oct 11 14:40:12 CEST 2019
+ - Pipeline script file path: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570796096867/somaticVC.nf
+ - Pipeline script hash ID: fafd2865aef5742139db33b3eaf33738
+ - Docker image: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Nextflow Version: 19.04.0
+ - Nextflow Build: 5069
+ - Nextflow Compile Timestamp: 17-04-2019 06:25 UTC
+
+--
+nf-core/sarek
+https://github.com/nf-core/sarek

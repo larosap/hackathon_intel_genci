@@ -1,0 +1,7 @@
+process	task_id	hash	native_id	module	container	tag	name	status	exit	submit	start	complete	duration	realtime	%cpu	%mem	rss	vmem	peak_rss	peak_vmem	rchar	wchar	syscr	syscw	read_bytes	write_bytes	attempt	workdir	scratch	queue	cpus	memory	disk	time	env
+GetVersionAll	1	fa/c6c4d4	3351164.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	-	GetVersionAll	COMPLETED	0	1571145725079	1571145759388	1571145759416	34337	7096	158.4	0.4	543010816	36277710848	543014912	36296318976	61102936	28855	24917	230	66654208	73728	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571144024345/work/fa/c6c4d45d5d961019ed7b66242fa132	-	dev	10	17179869184	-	28800000	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571144024345/bin:$PATH
+
+RunMultiQC	2	93/0f456b	3351169.torque6.curie.fr	-	/data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg	-	RunMultiQC	COMPLETED	0	1571145759861	1571145794549	1571145829374	69513	42490	61.5	0.1	133259264	635596800	133259264	635596800	235464399	7015401	36243	435	28063744	3801088	1	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571144024345/work/93/0f456b90335652cdce04afceb40007	-	dev	10	17179869184	-	28800000	NXF_OPTS=-Xms1g
+PATH=/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571144024345/bin:$PATH
+

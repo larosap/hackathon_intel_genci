@@ -1,0 +1,1867 @@
+ 1) create_env
+ 2) create_nxf_work_dir and configurations files
+ 3) install_nxf_script
+ 4) nxf_pipeline_nfcore-sarek
+[32m[1mWORK_DIR = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435(B[m
+[32m[1mLOCAL_SCRIPTS_PATH = (B[m
+[32m[1mRACINE_PIPELINES_DIR = /data/users/plarosa/projects/diffusion_hackathon_intel_genci/hackathon_intel_genci/Sarek(B[m
+[32m[1mCONFIG_NXF_PATH = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/conf(B[m
+[32m[1mLOCAL_SCRIPTS (lancemment et enchainement automatique sur le cluster): (B[m
+[32m[1mSCRIPT_STEP_MAPPING = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/run_mapping.sh(B[m
+[32m[1mSI MAPPING OK => SCRIPT_STEP_GERMLINE = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/run_germline.sh(B[m
+[32m[1mSI GERMLINE OK => SCRIPT_STEP_SOMATIC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/run_somatic.sh(B[m
+[32m[1mSI SOMATIC OK => SCRIPT_STEP_MUTIQC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/run_annotate.sh(B[m
+[32m[1mSI ANNOTATE OK => SCRIPT_STEP_MUTIQC = /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/run_multiqc.sh(B[m
+N E X T F L O W  ~  version 19.04.0
+Launching `main.nf` [trusting_booth] - revision: 71ac2f05d9
+WARN: It appears you have never run this project before -- Option `-resume` is ignored
+WARN: There's no process matching config selector: GetVersionAlleleCount
+WARN: Access to undefined parameter `sampleDir` -- Initialise it to a default value eg. `params.sampleDir = some_value`
+WARN: Access to undefined parameter `acLociGC` -- Initialise it to a default value eg. `params.acLociGC = some_value`
+WARN: Access to undefined parameter `chrDir` -- Initialise it to a default value eg. `params.chrDir = some_value`
+WARN: Access to undefined parameter `chrLength` -- Initialise it to a default value eg. `params.chrLength = some_value`
+WARN: Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+WARN: Access to undefined parameter `germlineResource` -- Initialise it to a default value eg. `params.germlineResource = some_value`
+WARN: Access to undefined parameter `snpeffDb` -- Initialise it to a default value eg. `params.snpeffDb = some_value`
+WARN: Access to undefined parameter `vepCacheVersion` -- Initialise it to a default value eg. `params.vepCacheVersion = some_value`
+WARN: Access to undefined parameter `config_profile_description` -- Initialise it to a default value eg. `params.config_profile_description = some_value`
+WARN: Access to undefined parameter `config_profile_contact` -- Initialise it to a default value eg. `params.config_profile_contact = some_value`
+WARN: Access to undefined parameter `config_profile_url` -- Initialise it to a default value eg. `params.config_profile_url = some_value`
+Run Name          : trusting_booth
+Sample File       : Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv
+Genome            : smallGRCh37
+Genome Base       : References/smallGRCh37
+Sequencing Center : SEQC-II Consortium
+Step              : mapping
+Sequenced by      : SEQC-II Consortium
+Max Resources     : 8 GB memory, 2 cpus, 1h time per job
+Container         : singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+Output dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Reports
+Launch dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Working dir       : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Script dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+User              : plarosa
+dbsnp             : References/smallGRCh37/dbsnp_138.b37.small.vcf
+intervals         : References/smallGRCh37/small.intervals
+knownIndels       : 
+Config Profile    : singularityPath,test
+WARN: Access to undefined parameter `hostnames` -- Initialise it to a default value eg. `params.hostnames = some_value`
+    ____        _____               _    
+  .' _  `.     / ____|             | |   
+ /  |\`-_ \   | (___  ___  _ __ __ | | __
+|   | \  `-|   \___ \/__ \| ´__/ _\| |/ /
+ \ |   \  /    ____) | __ | | |  __|   < 
+  `|____\'    |_____/\____|_|  \__/|_|\_\
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 71ac2f05d9
+Command Line: nextflow run main.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step mapping --sample Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_mapping_trace.csv -with-report Reports/pipeline_info/Sarek_mapping_report.html -with-timeline Reports/pipeline_info/Sarek_mapping_timeline.html -with-dag Reports/pipeline_info/Sarek_mapping_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Cont Engine : singularity
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Step        : mapping
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+bwa indexes :
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.sa,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.pac,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.bwt,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.ann,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.amb
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+knownIndels :
+	References/smallGRCh37/1000G_phase1.indels.b37.small.vcf,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf
+References/smallGRCh37/1000G_phase1.indels.b37.small.vcf.idx,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf.idx
+executor >  local (1)
+[68/cb4f03] process > RunFastQC [  0%] 0 of 1
+
+executor >  local (2)
+[68/cb4f03] process > RunFastQC [100%] 1 of 1
+[7f/50ff5b] process > MapReads  [  0%] 0 of 1
+
+executor >  local (3)
+[68/cb4f03] process > RunFastQC [100%] 1 of 1
+[98/396d80] process > MapReads  [ 50%] 1 of 2
+
+executor >  local (4)
+[76/c1f68c] process > RunFastQC [ 50%] 1 of 2
+[98/396d80] process > MapReads  [100%] 2 of 2
+
+executor >  local (5)
+[76/c1f68c] process > RunFastQC [100%] 2 of 2
+[39/5b96ae] process > MapReads  [ 67%] 2 of 3
+
+executor >  local (6)
+[76/c1f68c] process > RunFastQC [100%] 2 of 2
+[86/718e3d] process > MapReads  [ 75%] 3 of 4
+
+executor >  local (7)
+[03/07e3ab] process > RunFastQC [ 67%] 2 of 3
+[86/718e3d] process > MapReads  [100%] 4 of 4 ✔
+
+executor >  local (8)
+[03/07e3ab] process > RunFastQC [ 75%] 3 of 4
+[86/718e3d] process > MapReads  [100%] 4 of 4 ✔
+
+executor >  local (9)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[a9/ea225e] process > RunBamQCmapped [  0%] 0 of 1
+
+executor >  local (10)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[d1/8106bd] process > RunBamQCmapped [  0%] 0 of 2
+
+executor >  local (10)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[a9/ea225e] process > RunBamQCmapped [ 50%] 1 of 2
+
+executor >  local (11)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[b4/b1a7ae] process > RunBamQCmapped [ 33%] 1 of 3
+
+executor >  local (11)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[d1/8106bd] process > RunBamQCmapped [ 67%] 2 of 3
+
+executor >  local (12)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [ 50%] 2 of 4
+
+executor >  local (12)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[b4/b1a7ae] process > RunBamQCmapped [ 75%] 3 of 4
+
+executor >  local (12)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [100%] 4 of 4 ✔
+
+executor >  local (13)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [100%] 4 of 4 ✔
+[27/24af60] process > MergeBams      [  0%] 0 of 1
+
+executor >  local (14)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [100%] 4 of 4 ✔
+[27/24af60] process > MergeBams      [ 50%] 1 of 2
+
+executor >  local (15)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams      [100%] 2 of 2 ✔
+[ce/494963] process > MarkDuplicates [  0%] 0 of 1
+
+executor >  local (16)
+[ad/4488be] process > RunFastQC      [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads       [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams      [100%] 2 of 2 ✔
+[ce/494963] process > MarkDuplicates [ 50%] 1 of 2
+
+executor >  local (17)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[9c/ff4843] process > CreateRecalibrationTable [  0%] 0 of 1
+
+executor >  local (18)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [ 50%] 1 of 2
+
+executor >  local (19)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[9e/ac5de9] process > RecalibrateBam           [  0%] 0 of 1
+
+executor >  local (20)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [ 50%] 1 of 2
+
+executor >  local (20)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [ 50%] 1 of 2 ✔
+
+executor >  local (21)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[8b/242055] process > RunBamQCrecalibrated     [  0%] 0 of 1
+
+executor >  local (22)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[8b/242055] process > RunBamQCrecalibrated     [100%] 1 of 1
+[41/7d9cfc] process > RunSamtoolsStats         [  0%] 0 of 1
+
+executor >  local (23)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [ 50%] 1 of 2
+[41/7d9cfc] process > RunSamtoolsStats         [  0%] 0 of 1
+
+executor >  local (23)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [ 50%] 1 of 2
+[41/7d9cfc] process > RunSamtoolsStats         [100%] 1 of 1
+
+executor >  local (24)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [ 50%] 1 of 2
+[bb/72c6ff] process > RunSamtoolsStats         [ 50%] 1 of 2
+
+executor >  local (24)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [100%] 2 of 2 ✔
+[bb/72c6ff] process > RunSamtoolsStats         [ 50%] 1 of 2
+
+executor >  local (24)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [100%] 2 of 2 ✔
+[bb/72c6ff] process > RunSamtoolsStats         [100%] 2 of 2 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 71ac2f05d9
+Command Line: nextflow run main.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step mapping --sample Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_mapping_trace.csv -with-report Reports/pipeline_info/Sarek_mapping_report.html -with-timeline Reports/pipeline_info/Sarek_mapping_timeline.html -with-dag Reports/pipeline_info/Sarek_mapping_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Cont Engine : singularity
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Step        : mapping
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+bwa indexes :
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.sa,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.pac,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.bwt,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.ann,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.amb
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+knownIndels :
+	References/smallGRCh37/1000G_phase1.indels.b37.small.vcf,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf
+References/smallGRCh37/1000G_phase1.indels.b37.small.vcf.idx,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf.idx
+Completed at: Fri Oct 11 14:25:12 CEST 2019
+Duration    : 13m 28s
+Success     : true
+Exit status : 0
+Error report: -
+
+executor >  local (24)
+[ad/4488be] process > RunFastQC                [100%] 4 of 4 ✔
+[86/718e3d] process > MapReads                 [100%] 4 of 4 ✔
+[95/46401d] process > RunBamQCmapped           [100%] 4 of 4 ✔
+[9e/68d059] process > MergeBams                [100%] 2 of 2 ✔
+[91/ae19e6] process > MarkDuplicates           [100%] 2 of 2 ✔
+[24/9c46f1] process > CreateRecalibrationTable [100%] 2 of 2 ✔
+[39/13ed87] process > RecalibrateBam           [100%] 2 of 2 ✔
+[39/054076] process > RunBamQCrecalibrated     [100%] 2 of 2 ✔
+[bb/72c6ff] process > RunSamtoolsStats         [100%] 2 of 2 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 71ac2f05d9
+Command Line: nextflow run main.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step mapping --sample Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_mapping_trace.csv -with-report Reports/pipeline_info/Sarek_mapping_report.html -with-timeline Reports/pipeline_info/Sarek_mapping_timeline.html -with-dag Reports/pipeline_info/Sarek_mapping_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Cont Engine : singularity
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Sarek-data/HPC-bench/tsv/HPC-bench-test.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Step        : mapping
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+bwa indexes :
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.sa,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.pac,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.bwt,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.ann,
+	References/smallGRCh37/human_g1k_v37_decoy.small.fasta.amb
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+knownIndels :
+	References/smallGRCh37/1000G_phase1.indels.b37.small.vcf,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf
+References/smallGRCh37/1000G_phase1.indels.b37.small.vcf.idx,
+	References/smallGRCh37/Mills_and_1000G_gold_standard.indels.b37.small.vcf.idx
+Completed at: Fri Oct 11 14:25:12 CEST 2019
+Duration    : 13m 28s
+Success     : true
+Exit status : 0
+Error report: -
+Completed at: 11-oct.-2019 14:25:14
+Duration    : 13m 30s
+CPU hours   : 0.4
+Succeeded   : 24
+
+N E X T F L O W  ~  version 19.04.0
+Launching `germlineVC.nf` [voluminous_gilbert] - revision: 7b4cebd6d6
+WARN: There's no process matching config selector: GetVersionAlleleCount
+WARN: Access to undefined parameter `noStrelkaBP` -- Initialise it to a default value eg. `params.noStrelkaBP = some_value`
+WARN: Access to undefined parameter `pon` -- Initialise it to a default value eg. `params.pon = some_value`
+WARN: Access to undefined parameter `acLoci` -- Initialise it to a default value eg. `params.acLoci = some_value`
+WARN: Access to undefined parameter `acLociGC` -- Initialise it to a default value eg. `params.acLociGC = some_value`
+WARN: Access to undefined parameter `chrDir` -- Initialise it to a default value eg. `params.chrDir = some_value`
+WARN: Access to undefined parameter `chrLength` -- Initialise it to a default value eg. `params.chrLength = some_value`
+WARN: Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+WARN: Access to undefined parameter `germlineResource` -- Initialise it to a default value eg. `params.germlineResource = some_value`
+WARN: Access to undefined parameter `knownIndels` -- Initialise it to a default value eg. `params.knownIndels = some_value`
+WARN: Access to undefined parameter `snpeffDb` -- Initialise it to a default value eg. `params.snpeffDb = some_value`
+WARN: Access to undefined parameter `vepCacheVersion` -- Initialise it to a default value eg. `params.vepCacheVersion = some_value`
+WARN: Access to undefined parameter `config_profile_description` -- Initialise it to a default value eg. `params.config_profile_description = some_value`
+WARN: Access to undefined parameter `config_profile_contact` -- Initialise it to a default value eg. `params.config_profile_contact = some_value`
+WARN: Access to undefined parameter `config_profile_url` -- Initialise it to a default value eg. `params.config_profile_url = some_value`
+Run Name          : voluminous_gilbert
+Sample File       : Preprocessing/Recalibrated/recalibrated.tsv
+Genome            : smallGRCh37
+Genome Base       : References/smallGRCh37
+Sequencing Center : SEQC-II Consortium
+Target BED        : Sarek-data/testdata/target.bed
+Step              : germline
+Tools             : freebayes, haplotypecaller, manta, mutect2, strelka
+GVCF              : Yes
+Strelka BP        : Yes
+Sequenced by      : SEQC-II Consortium
+Max Resources     : 8 GB memory, 2 cpus, 1h time per job
+Container         : singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+Output dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Reports
+Launch dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Working dir       : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Script dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+User              : plarosa
+dbsnp             : References/smallGRCh37/dbsnp_138.b37.small.vcf
+intervals         : References/smallGRCh37/small.intervals
+Config Profile    : singularityPath,test
+WARN: Access to undefined parameter `hostnames` -- Initialise it to a default value eg. `params.hostnames = some_value`
+    ____        _____               _    
+  .' _  `.     / ____|             | |   
+ /  |\`-_ \   | (___  ___  _ __ __ | | __
+|   | \  `-|   \___ \/__ \| ´__/ _\| |/ /
+ \ |   \  /    ____) | __ | | |  __|   < 
+  `|____\'    |_____/\____|_|  \__/|_|\_\
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 7b4cebd6d6
+Command Line: nextflow run germlineVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step germline --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_germline_trace.csv -with-report Reports/pipeline_info/Sarek_germline_report.html -with-timeline Reports/pipeline_info/Sarek_germline_timeline.html -with-dag Reports/pipeline_info/Sarek_germline_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+executor >  local (1)
+[4e/c28e4b] process > CreateIntervalBeds [  0%] 0 of 1
+
+executor >  local (2)
+[4e/c28e4b] process > CreateIntervalBeds [  0%] 0 of 1
+[84/6204d6] process > RunSingleStrelka   [  0%] 0 of 1
+
+executor >  local (2)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[84/6204d6] process > RunSingleStrelka   [  0%] 0 of 1
+
+executor >  local (3)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[84/6204d6] process > RunSingleStrelka   [ 50%] 1 of 2
+
+executor >  local (4)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [  0%] 0 of 1
+
+executor >  local (5)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[a6/26eb81] process > RunHaplotypecaller [  0%] 0 of 1
+
+executor >  local (5)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[a6/26eb81] process > RunHaplotypecaller [100%] 1 of 1
+
+executor >  local (6)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[97/363c99] process > RunHaplotypecaller [ 50%] 1 of 2
+
+executor >  local (7)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[8f/d72749] process > RunHaplotypecaller [ 67%] 2 of 3
+
+executor >  local (8)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[1d/e656dd] process > RunHaplotypecaller [ 75%] 3 of 4
+
+executor >  local (8)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[1d/e656dd] process > RunHaplotypecaller [100%] 4 of 4
+
+executor >  local (9)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[f7/5ec2f9] process > RunHaplotypecaller [ 80%] 4 of 5
+
+executor >  local (10)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[98/50326a] process > RunHaplotypecaller [ 83%] 5 of 6
+
+executor >  local (11)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[7b/4126d8] process > RunHaplotypecaller [ 86%] 6 of 7
+
+executor >  local (12)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[1e/a6e8e5] process > RunHaplotypecaller [ 88%] 7 of 8
+
+executor >  local (13)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d9/450d49] process > RunHaplotypecaller [ 89%] 8 of 9
+
+executor >  local (14)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[ee/5bacaa] process > RunHaplotypecaller [ 90%] 9 of 10
+
+executor >  local (15)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[ee/5bacaa] process > RunHaplotypecaller [ 91%] 10 of 11
+
+executor >  local (16)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [ 92%] 11 of 12
+
+executor >  local (17)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[25/8aa9c3] process > RunVcftools        [  0%] 0 of 1
+
+executor >  local (18)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[25/8aa9c3] process > RunVcftools        [100%] 1 of 1
+[88/f35556] process > RunBcftoolsStats   [  0%] 0 of 1
+
+executor >  local (18)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[25/8aa9c3] process > RunVcftools        [100%] 1 of 1
+[88/f35556] process > RunBcftoolsStats   [100%] 1 of 1
+
+executor >  local (19)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[6f/32dc6c] process > RunVcftools        [ 50%] 1 of 2
+[88/f35556] process > RunBcftoolsStats   [100%] 1 of 1
+
+executor >  local (20)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[6f/32dc6c] process > RunVcftools        [100%] 2 of 2
+[6e/adf1c3] process > RunBcftoolsStats   [ 50%] 1 of 2
+
+executor >  local (21)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [ 67%] 2 of 3
+[6e/adf1c3] process > RunBcftoolsStats   [100%] 2 of 2
+
+executor >  local (22)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [ 67%] 2 of 3
+
+executor >  local (23)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[e2/0c6ba5] process > RunGenotypeGVCFs   [  0%] 0 of 1
+
+executor >  local (24)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[e2/0c6ba5] process > RunGenotypeGVCFs   [ 50%] 1 of 2
+
+executor >  local (25)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[af/668b6e] process > RunGenotypeGVCFs   [ 67%] 2 of 3
+
+executor >  local (26)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[eb/47eb42] process > RunGenotypeGVCFs   [ 75%] 3 of 4
+
+executor >  local (27)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[c3/8d71e5] process > RunGenotypeGVCFs   [ 80%] 4 of 5
+
+executor >  local (28)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[16/c6367b] process > RunGenotypeGVCFs   [ 83%] 5 of 6
+
+executor >  local (29)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[4c/c57a90] process > RunGenotypeGVCFs   [ 86%] 6 of 7
+
+executor >  local (30)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[01/482a28] process > RunGenotypeGVCFs   [ 88%] 7 of 8
+
+executor >  local (31)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[e2/c859d2] process > RunGenotypeGVCFs   [ 89%] 8 of 9
+
+executor >  local (32)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[c5/2c7869] process > RunGenotypeGVCFs   [ 90%] 9 of 10
+
+executor >  local (33)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[61/be9aea] process > RunGenotypeGVCFs   [ 91%] 10 of 11
+
+executor >  local (34)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [ 92%] 11 of 12
+
+executor >  local (35)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[28/505c37] process > ConcatVCF          [  0%] 0 of 1
+
+executor >  local (36)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[28/505c37] process > ConcatVCF          [ 50%] 1 of 2
+
+executor >  local (37)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[43/84115f] process > ConcatVCF          [ 67%] 2 of 3
+
+executor >  local (38)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [ 50%] 2 of 4
+
+executor >  local (38)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[32/60d3b9] process > RunBcftoolsStats   [100%] 3 of 3
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[91/3915da] process > ConcatVCF          [ 75%] 3 of 4
+
+executor >  local (39)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[f1/8b84d2] process > RunVcftools        [100%] 3 of 3
+[a1/1ca04e] process > RunBcftoolsStats   [ 75%] 3 of 4
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (40)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[25/03b80b] process > RunVcftools        [ 75%] 3 of 4
+[a1/1ca04e] process > RunBcftoolsStats   [100%] 4 of 4
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (41)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[25/03b80b] process > RunVcftools        [ 80%] 4 of 5
+[a1/1ca04e] process > RunBcftoolsStats   [100%] 4 of 4
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (42)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[ad/b7de63] process > RunVcftools        [100%] 5 of 5
+[ab/cdbfb7] process > RunBcftoolsStats   [ 80%] 4 of 5
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (43)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[ad/b7de63] process > RunVcftools        [100%] 5 of 5
+[8e/344c13] process > RunBcftoolsStats   [ 83%] 5 of 6
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (44)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[3d/f4c1a9] process > RunVcftools        [ 83%] 5 of 6
+[8e/344c13] process > RunBcftoolsStats   [100%] 6 of 6
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (45)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[3d/f4c1a9] process > RunVcftools        [100%] 6 of 6
+[a6/ae1be8] process > RunBcftoolsStats   [ 86%] 6 of 7
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (46)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[94/f0f59f] process > RunVcftools        [ 86%] 6 of 7
+[a6/ae1be8] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (46)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[94/f0f59f] process > RunVcftools        [100%] 7 of 7 ✔
+[a6/ae1be8] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+
+executor >  local (46)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[94/f0f59f] process > RunVcftools        [100%] 7 of 7 ✔
+[a6/ae1be8] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 7b4cebd6d6
+Command Line: nextflow run germlineVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step germline --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_germline_trace.csv -with-report Reports/pipeline_info/Sarek_germline_report.html -with-timeline Reports/pipeline_info/Sarek_germline_timeline.html -with-dag Reports/pipeline_info/Sarek_germline_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+Completed at: Fri Oct 11 14:41:31 CEST 2019
+Duration    : 15m 42s
+Success     : true
+Exit status : 0
+Error report: -
+
+executor >  local (46)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1 ✔
+[14/ccac62] process > RunSingleStrelka   [100%] 2 of 2 ✔
+[5d/d1161a] process > RunSingleManta     [100%] 1 of 1 ✔
+[d6/82d280] process > RunHaplotypecaller [100%] 12 of 12 ✔
+[94/f0f59f] process > RunVcftools        [100%] 7 of 7 ✔
+[a6/ae1be8] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[fe/938a74] process > RunGenotypeGVCFs   [100%] 12 of 12 ✔
+[77/8348f7] process > ConcatVCF          [100%] 4 of 4 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 7b4cebd6d6
+Command Line: nextflow run germlineVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step germline --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_germline_trace.csv -with-report Reports/pipeline_info/Sarek_germline_report.html -with-timeline Reports/pipeline_info/Sarek_germline_timeline.html -with-dag Reports/pipeline_info/Sarek_germline_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Reference files used:
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+Completed at: Fri Oct 11 14:41:31 CEST 2019
+Duration    : 15m 42s
+Success     : true
+Exit status : 0
+Error report: -
+Completed at: 11-oct.-2019 14:41:33
+Duration    : 15m 44s
+CPU hours   : 0.5
+Succeeded   : 46
+
+N E X T F L O W  ~  version 19.04.0
+Launching `somaticVC.nf` [prickly_gates] - revision: fafd2865ae
+WARN: There's no process matching config selector: RunSnpeff
+WARN: Access to undefined parameter `noStrelkaBP` -- Initialise it to a default value eg. `params.noStrelkaBP = some_value`
+WARN: Access to undefined parameter `pon` -- Initialise it to a default value eg. `params.pon = some_value`
+WARN: Access to undefined parameter `chrDir` -- Initialise it to a default value eg. `params.chrDir = some_value`
+WARN: Access to undefined parameter `chrLength` -- Initialise it to a default value eg. `params.chrLength = some_value`
+WARN: Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+WARN: Access to undefined parameter `germlineResource` -- Initialise it to a default value eg. `params.germlineResource = some_value`
+WARN: Access to undefined parameter `knownIndels` -- Initialise it to a default value eg. `params.knownIndels = some_value`
+WARN: Access to undefined parameter `snpeffDb` -- Initialise it to a default value eg. `params.snpeffDb = some_value`
+WARN: Access to undefined parameter `vepCacheVersion` -- Initialise it to a default value eg. `params.vepCacheVersion = some_value`
+WARN: Access to undefined parameter `config_profile_description` -- Initialise it to a default value eg. `params.config_profile_description = some_value`
+WARN: Access to undefined parameter `config_profile_contact` -- Initialise it to a default value eg. `params.config_profile_contact = some_value`
+WARN: Access to undefined parameter `config_profile_url` -- Initialise it to a default value eg. `params.config_profile_url = some_value`
+Run Name          : prickly_gates
+Sample File       : Preprocessing/Recalibrated/recalibrated.tsv
+Genome            : smallGRCh37
+Genome Base       : References/smallGRCh37
+Sequencing Center : SEQC-II Consortium
+Target BED        : Sarek-data/testdata/target.bed
+Step              : somatic
+Tools             : freebayes, haplotypecaller, manta, mutect2, strelka
+GVCF              : Yes
+Strelka BP        : Yes
+Sequenced by      : SEQC-II Consortium
+Max Resources     : 8 GB memory, 2 cpus, 1h time per job
+Container         : singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+Output dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Reports
+Launch dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Working dir       : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Script dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+User              : plarosa
+acLoci            : References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci
+acLociGC          : References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci.gc
+dbsnp             : References/smallGRCh37/dbsnp_138.b37.small.vcf
+intervals         : References/smallGRCh37/small.intervals
+Config Profile    : singularityPath,test
+WARN: Access to undefined parameter `hostnames` -- Initialise it to a default value eg. `params.hostnames = some_value`
+    ____        _____               _    
+  .' _  `.     / ____|             | |   
+ /  |\`-_ \   | (___  ___  _ __ __ | | __
+|   | \  `-|   \___ \/__ \| ´__/ _\| |/ /
+ \ |   \  /    ____) | __ | | |  __|   < 
+  `|____\'    |_____/\____|_|  \__/|_|\_\
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - fafd2865ae
+Command Line: nextflow run somaticVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step somatic --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_somatic_trace.csv -with-report Reports/pipeline_info/Sarek_somatic_report.html -with-timeline Reports/pipeline_info/Sarek_somatic_timeline.html -with-dag Reports/pipeline_info/Sarek_somatic_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+acLoci      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci
+acLociGC    :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci.gc
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+executor >  local (1)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [  0%] 0 of 1
+
+executor >  local (2)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [  0%] 0 of 1
+
+executor >  local (3)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [  0%] 0 of 1
+
+executor >  local (4)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[d3/3c0987] process > RunFreeBayes       [  0%] 0 of 1
+
+executor >  local (4)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[d3/3c0987] process > RunFreeBayes       [100%] 1 of 1
+
+executor >  local (5)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[13/142bdb] process > RunFreeBayes       [ 50%] 1 of 2
+
+executor >  local (6)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[13/142bdb] process > RunFreeBayes       [100%] 2 of 2
+[87/797a0f] process > RunMutect2         [  0%] 0 of 1
+
+executor >  local (7)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[13/142bdb] process > RunFreeBayes       [100%] 2 of 2
+[a6/d0f32b] process > RunMutect2         [ 50%] 1 of 2
+
+executor >  local (7)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[13/142bdb] process > RunFreeBayes       [100%] 2 of 2
+[a6/d0f32b] process > RunMutect2         [100%] 2 of 2
+
+executor >  local (8)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[13/142bdb] process > RunFreeBayes       [100%] 2 of 2
+[0f/59b2f2] process > RunMutect2         [ 67%] 2 of 3
+
+executor >  local (9)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[a9/d110ab] process > RunFreeBayes       [ 67%] 2 of 3
+[0f/59b2f2] process > RunMutect2         [100%] 3 of 3
+
+executor >  local (10)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[56/abe233] process > RunFreeBayes       [ 75%] 3 of 4
+[0f/59b2f2] process > RunMutect2         [100%] 3 of 3
+
+executor >  local (11)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[56/abe233] process > RunFreeBayes       [100%] 4 of 4
+[c6/baa9f7] process > RunMutect2         [ 75%] 3 of 4
+
+executor >  local (12)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[37/994e4a] process > RunFreeBayes       [ 80%] 4 of 5
+[c6/baa9f7] process > RunMutect2         [100%] 4 of 4
+
+executor >  local (13)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[37/994e4a] process > RunFreeBayes       [100%] 5 of 5
+[58/103f4f] process > RunMutect2         [ 80%] 4 of 5
+
+executor >  local (14)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[37/994e4a] process > RunFreeBayes       [100%] 5 of 5
+[dd/56f8ef] process > RunMutect2         [ 83%] 5 of 6
+
+executor >  local (15)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [ 83%] 5 of 6
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+
+executor >  local (16)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[71/96f9b5] process > RunBcftoolsStats   [  0%] 0 of 1
+
+executor >  local (17)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[72/a64a31] process > RunBcftoolsStats   [ 50%] 1 of 2
+
+executor >  local (18)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[72/a64a31] process > RunBcftoolsStats   [100%] 2 of 2
+[2c/23ca19] process > RunVcftools        [  0%] 0 of 1
+
+executor >  local (19)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[72/a64a31] process > RunBcftoolsStats   [100%] 2 of 2
+[2c/23ca19] process > RunVcftools        [ 50%] 1 of 2
+
+executor >  local (20)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[d1/a71a4c] process > RunBcftoolsStats   [ 67%] 2 of 3
+[5a/49f1c7] process > RunVcftools        [100%] 2 of 2
+
+executor >  local (21)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[d1/a71a4c] process > RunBcftoolsStats   [100%] 3 of 3
+[f4/54d80f] process > RunVcftools        [ 67%] 2 of 3
+
+executor >  local (22)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[67/c083f7] process > RunBcftoolsStats   [ 75%] 3 of 4
+[f4/54d80f] process > RunVcftools        [100%] 3 of 3
+
+executor >  local (23)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[67/c083f7] process > RunBcftoolsStats   [100%] 4 of 4
+[d3/d45e21] process > RunVcftools        [ 75%] 3 of 4
+
+executor >  local (24)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[67/c083f7] process > RunBcftoolsStats   [100%] 4 of 4
+[d3/d45e21] process > RunVcftools        [ 80%] 4 of 5
+
+executor >  local (25)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[94/e329b0] process > RunBcftoolsStats   [ 80%] 4 of 5
+[01/251386] process > RunVcftools        [100%] 5 of 5
+
+executor >  local (26)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[94/e329b0] process > RunBcftoolsStats   [100%] 5 of 5
+[01/251386] process > RunVcftools        [100%] 5 of 5
+[8f/130bdd] process > ConcatVCF          [  0%] 0 of 1
+
+executor >  local (27)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[94/e329b0] process > RunBcftoolsStats   [100%] 5 of 5
+[01/251386] process > RunVcftools        [100%] 5 of 5
+[cc/2d6e7d] process > ConcatVCF          [ 50%] 1 of 2
+
+executor >  local (28)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[94/e329b0] process > RunBcftoolsStats   [100%] 5 of 5
+[51/f26f2d] process > RunVcftools        [ 83%] 5 of 6
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (29)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[ac/0dd01b] process > RunBcftoolsStats   [ 83%] 5 of 6
+[51/f26f2d] process > RunVcftools        [ 83%] 5 of 6
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (29)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[ac/0dd01b] process > RunBcftoolsStats   [ 83%] 5 of 6
+[51/f26f2d] process > RunVcftools        [100%] 6 of 6
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (30)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[a5/f4e8ae] process > RunBcftoolsStats   [ 86%] 6 of 7
+[51/f26f2d] process > RunVcftools        [100%] 6 of 6
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (31)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[a5/f4e8ae] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[21/5b42e2] process > RunVcftools        [ 86%] 6 of 7
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (31)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[a5/f4e8ae] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[21/5b42e2] process > RunVcftools        [100%] 7 of 7 ✔
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+
+executor >  local (31)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[a5/f4e8ae] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[21/5b42e2] process > RunVcftools        [100%] 7 of 7 ✔
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - fafd2865ae
+Command Line: nextflow run somaticVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step somatic --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_somatic_trace.csv -with-report Reports/pipeline_info/Sarek_somatic_report.html -with-timeline Reports/pipeline_info/Sarek_somatic_timeline.html -with-dag Reports/pipeline_info/Sarek_somatic_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+acLoci      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci
+acLociGC    :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci.gc
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+Completed at: Fri Oct 11 15:18:40 CEST 2019
+Duration    : 36m 33s
+Success     : true
+Exit status : 0
+Error report: -
+
+executor >  local (31)
+[4e/c28e4b] process > CreateIntervalBeds [100%] 1 of 1, cached: 1 ✔
+[b8/533693] process > RunStrelka         [100%] 1 of 1 ✔
+[32/1e65b1] process > RunManta           [100%] 1 of 1 ✔
+[25/deb65c] process > RunSingleManta     [100%] 1 of 1 ✔
+[fd/00559d] process > RunFreeBayes       [100%] 6 of 6 ✔
+[dd/56f8ef] process > RunMutect2         [100%] 6 of 6 ✔
+[a5/f4e8ae] process > RunBcftoolsStats   [100%] 7 of 7 ✔
+[21/5b42e2] process > RunVcftools        [100%] 7 of 7 ✔
+[cc/2d6e7d] process > ConcatVCF          [100%] 2 of 2 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - fafd2865ae
+Command Line: nextflow run somaticVC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step somatic --sample Preprocessing/Recalibrated/recalibrated.tsv --targetBED Sarek-data/testdata/target.bed --tools FreeBayes,HaplotypeCaller,Manta,Mutect2,Strelka -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_somatic_trace.csv -with-report Reports/pipeline_info/Sarek_somatic_report.html -with-timeline Reports/pipeline_info/Sarek_somatic_timeline.html -with-dag Reports/pipeline_info/Sarek_somatic_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+TSV file    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Preprocessing/Recalibrated/recalibrated.tsv
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Target BED  : Sarek-data/testdata/target.bed
+Tools       : freebayes, haplotypecaller, manta, mutect2, strelka
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+acLoci      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci
+acLociGC    :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/1000G_phase3_20130502_SNP_maf0.3.small.loci.gc
+dbsnp       :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/dbsnp_138.b37.small.vcf.idx
+genome      :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.dict
+/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/human_g1k_v37_decoy.small.fasta.fai
+intervals   :
+	/data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/References/smallGRCh37/small.intervals
+Completed at: Fri Oct 11 15:18:40 CEST 2019
+Duration    : 36m 33s
+Success     : true
+Exit status : 0
+Error report: -
+Completed at: 11-oct.-2019 15:18:42
+Duration    : 36m 34s
+CPU hours   : 1.2 (0% cached)
+Succeeded   : 31
+Cached      : 1
+
+N E X T F L O W  ~  version 19.04.0
+Launching `annotate.nf` [prickly_gutenberg] - revision: e78ad8de3a
+WARN: There's no process matching config selector: GetVersionAlleleCount
+WARN: Access to undefined parameter `annotateVCF` -- Initialise it to a default value eg. `params.annotateVCF = some_value`
+WARN: Access to undefined parameter `sample` -- Initialise it to a default value eg. `params.sample = some_value`
+WARN: Access to undefined parameter `pon` -- Initialise it to a default value eg. `params.pon = some_value`
+WARN: Access to undefined parameter `acLoci` -- Initialise it to a default value eg. `params.acLoci = some_value`
+WARN: Access to undefined parameter `acLociGC` -- Initialise it to a default value eg. `params.acLociGC = some_value`
+WARN: Access to undefined parameter `chrDir` -- Initialise it to a default value eg. `params.chrDir = some_value`
+WARN: Access to undefined parameter `chrLength` -- Initialise it to a default value eg. `params.chrLength = some_value`
+WARN: Access to undefined parameter `dbsnp` -- Initialise it to a default value eg. `params.dbsnp = some_value`
+WARN: Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+WARN: Access to undefined parameter `germlineResource` -- Initialise it to a default value eg. `params.germlineResource = some_value`
+WARN: Access to undefined parameter `intervals` -- Initialise it to a default value eg. `params.intervals = some_value`
+WARN: Access to undefined parameter `knownIndels` -- Initialise it to a default value eg. `params.knownIndels = some_value`
+WARN: Access to undefined parameter `snpeffDb` -- Initialise it to a default value eg. `params.snpeffDb = some_value`
+WARN: Access to undefined parameter `vepCacheVersion` -- Initialise it to a default value eg. `params.vepCacheVersion = some_value`
+WARN: Access to undefined parameter `config_profile_description` -- Initialise it to a default value eg. `params.config_profile_description = some_value`
+WARN: Access to undefined parameter `config_profile_contact` -- Initialise it to a default value eg. `params.config_profile_contact = some_value`
+WARN: Access to undefined parameter `config_profile_url` -- Initialise it to a default value eg. `params.config_profile_url = some_value`
+Run Name          : prickly_gutenberg
+Genome            : smallGRCh37
+Genome Base       : References/smallGRCh37
+Sequencing Center : SEQC-II Consortium
+Step              : annotate
+Tools             : snpeff
+Sequenced by      : SEQC-II Consortium
+Max Resources     : 8 GB memory, 2 cpus, 1h time per job
+Container         : singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+Output dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Reports
+Launch dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Working dir       : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Script dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+User              : plarosa
+Config Profile    : singularityPath,test
+WARN: Access to undefined parameter `hostnames` -- Initialise it to a default value eg. `params.hostnames = some_value`
+    ____        _____               _    
+  .' _  `.     / ____|             | |   
+ /  |\`-_ \   | (___  ___  _ __ __ | | __
+|   | \  `-|   \___ \/__ \| ´__/ _\| |/ /
+ \ |   \  /    ____) | __ | | |  __|   < 
+  `|____\'    |_____/\____|_|  \__/|_|\_\
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - e78ad8de3a
+Command Line: nextflow run annotate.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step annotate --annotateTools haplotypecaller,strelka,mutect2 --tools snpEff -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_annotate_trace.csv -with-report Reports/pipeline_info/Sarek_annotate_report.html -with-timeline Reports/pipeline_info/Sarek_annotate_timeline.html -with-dag Reports/pipeline_info/Sarek_annotate_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Tools       : snpeff
+Annotate on : haplotypecaller, strelka, mutect2
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+snpEff DB    :
+	GRCh37.75
+VEP Cache    :
+	95
+WARN: Access to undefined parameter `snpEff_cache` -- Initialise it to a default value eg. `params.snpEff_cache = some_value`
+WARN: Access to undefined parameter `vep_cache` -- Initialise it to a default value eg. `params.vep_cache = some_value`
+WARN: Access to undefined parameter `cadd_WG_SNVs` -- Initialise it to a default value eg. `params.cadd_WG_SNVs = some_value`
+WARN: Access to undefined parameter `cadd_WG_SNVs_tbi` -- Initialise it to a default value eg. `params.cadd_WG_SNVs_tbi = some_value`
+WARN: Access to undefined parameter `cadd_InDels` -- Initialise it to a default value eg. `params.cadd_InDels = some_value`
+WARN: Access to undefined parameter `cadd_InDels_tbi` -- Initialise it to a default value eg. `params.cadd_InDels_tbi = some_value`
+WARN: Access to undefined parameter `annotation_cache` -- Initialise it to a default value eg. `params.annotation_cache = some_value`
+executor >  local (1)
+[03/df037e] process > RunVcftools [  0%] 0 of 1
+
+executor >  local (2)
+[03/df037e] process > RunVcftools      [100%] 1 of 1
+[cd/d452a0] process > RunBcftoolsStats [  0%] 0 of 1
+
+executor >  local (3)
+[03/df037e] process > RunVcftools      [100%] 1 of 1
+[b0/18298a] process > RunBcftoolsStats [ 50%] 1 of 2
+
+executor >  local (4)
+[06/7bf669] process > RunVcftools      [ 50%] 1 of 2
+[b0/18298a] process > RunBcftoolsStats [100%] 2 of 2
+
+executor >  local (5)
+[06/7bf669] process > RunVcftools      [100%] 2 of 2
+[f0/6bbf68] process > RunBcftoolsStats [ 67%] 2 of 3
+
+executor >  local (5)
+[06/7bf669] process > RunVcftools      [100%] 2 of 2
+[f0/6bbf68] process > RunBcftoolsStats [100%] 3 of 3
+
+executor >  local (6)
+[06/7bf669] process > RunVcftools      [100%] 2 of 2
+[d4/920ac4] process > RunBcftoolsStats [ 75%] 3 of 4
+
+executor >  local (7)
+[68/f51231] process > RunVcftools      [ 67%] 2 of 3
+[d4/920ac4] process > RunBcftoolsStats [100%] 4 of 4
+
+executor >  local (8)
+[68/f51231] process > RunVcftools      [ 67%] 2 of 3
+[d4/920ac4] process > RunBcftoolsStats [100%] 4 of 4
+[8f/bcdd8b] process > RunSnpeff        [  0%] 0 of 1
+
+executor >  local (8)
+[68/f51231] process > RunVcftools      [100%] 3 of 3
+[d4/920ac4] process > RunBcftoolsStats [100%] 4 of 4
+[8f/bcdd8b] process > RunSnpeff        [  0%] 0 of 1
+
+executor >  local (9)
+[68/f51231] process > RunVcftools      [100%] 3 of 3
+[d4/920ac4] process > RunBcftoolsStats [100%] 4 of 4
+[8f/bcdd8b] process > RunSnpeff        [ 50%] 1 of 2
+
+executor >  local (10)
+[c2/b2c549] process > RunVcftools      [ 75%] 3 of 4
+[d4/920ac4] process > RunBcftoolsStats [100%] 4 of 4
+[0a/817a93] process > RunSnpeff        [100%] 2 of 2
+
+executor >  local (11)
+[c2/b2c549] process > RunVcftools      [100%] 4 of 4
+[a4/c20fbb] process > RunBcftoolsStats [ 80%] 4 of 5
+[0a/817a93] process > RunSnpeff        [100%] 2 of 2
+
+executor >  local (12)
+[c2/b2c549] process > RunVcftools      [100%] 4 of 4
+[68/da7081] process > RunBcftoolsStats [ 83%] 5 of 6
+[0a/817a93] process > RunSnpeff        [100%] 2 of 2
+
+executor >  local (13)
+[c2/b2c549] process > RunVcftools      [100%] 4 of 4
+[03/919eb2] process > RunBcftoolsStats [ 86%] 6 of 7
+[0a/817a93] process > RunSnpeff        [100%] 2 of 2
+
+executor >  local (14)
+[c2/b2c549] process > RunVcftools      [100%] 4 of 4
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[23/cf3540] process > RunSnpeff        [ 67%] 2 of 3
+
+executor >  local (15)
+[c2/b2c549] process > RunVcftools      [100%] 4 of 4
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[23/cf3540] process > RunSnpeff        [ 75%] 3 of 4
+
+executor >  local (16)
+[e7/816edc] process > RunVcftools      [ 80%] 4 of 5
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[93/a5a58c] process > RunSnpeff        [100%] 4 of 4
+
+executor >  local (17)
+[e7/816edc] process > RunVcftools      [ 83%] 5 of 6
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[93/a5a58c] process > RunSnpeff        [100%] 4 of 4
+
+executor >  local (18)
+[18/8072b2] process > RunVcftools      [ 86%] 6 of 7
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[93/a5a58c] process > RunSnpeff        [100%] 4 of 4
+
+executor >  local (19)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[27/80c936] process > RunSnpeff        [ 80%] 4 of 5
+
+executor >  local (20)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[73/3b6113] process > RunSnpeff        [ 83%] 5 of 6
+
+executor >  local (21)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[73/3b6113] process > RunSnpeff        [ 86%] 6 of 7
+
+executor >  local (22)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[52/72bea9] process > CompressVCF      [  0%] 0 of 1
+
+executor >  local (23)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[52/72bea9] process > CompressVCF      [ 50%] 1 of 2
+
+executor >  local (24)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[ec/8b7049] process > CompressVCF      [ 67%] 2 of 3
+
+executor >  local (25)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[11/cb098f] process > CompressVCF      [ 75%] 3 of 4
+
+executor >  local (26)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[6f/4890af] process > CompressVCF      [ 80%] 4 of 5
+
+executor >  local (27)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[8b/ba4e47] process > CompressVCF      [ 83%] 5 of 6
+
+executor >  local (28)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[10/3428a0] process > CompressVCF      [ 86%] 6 of 7
+
+executor >  local (28)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[10/3428a0] process > CompressVCF      [100%] 7 of 7 ✔
+
+executor >  local (28)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[10/3428a0] process > CompressVCF      [100%] 7 of 7 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - e78ad8de3a
+Command Line: nextflow run annotate.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step annotate --annotateTools haplotypecaller,strelka,mutect2 --tools snpEff -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_annotate_trace.csv -with-report Reports/pipeline_info/Sarek_annotate_report.html -with-timeline Reports/pipeline_info/Sarek_annotate_timeline.html -with-dag Reports/pipeline_info/Sarek_annotate_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Tools       : snpeff
+Annotate on : haplotypecaller, strelka, mutect2
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+snpEff DB    :
+	GRCh37.75
+VEP Cache    :
+	95
+Completed at: Fri Oct 11 15:26:40 CEST 2019
+Duration    : 7m 23s
+Success     : true
+Exit status : 0
+Error report: -
+
+executor >  local (28)
+[75/10c150] process > RunVcftools      [100%] 7 of 7 ✔
+[03/919eb2] process > RunBcftoolsStats [100%] 7 of 7 ✔
+[a1/cd7911] process > RunSnpeff        [100%] 7 of 7 ✔
+[10/3428a0] process > CompressVCF      [100%] 7 of 7 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - e78ad8de3a
+Command Line: nextflow run annotate.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --sequencing_center 'SEQC-II Consortium' --step annotate --annotateTools haplotypecaller,strelka,mutect2 --tools snpEff -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_annotate_trace.csv -with-report Reports/pipeline_info/Sarek_annotate_report.html -with-timeline Reports/pipeline_info/Sarek_annotate_timeline.html -with-dag Reports/pipeline_info/Sarek_annotate_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Tools       : snpeff
+Annotate on : haplotypecaller, strelka, mutect2
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Reference files used:
+snpEff DB    :
+	GRCh37.75
+VEP Cache    :
+	95
+Completed at: Fri Oct 11 15:26:40 CEST 2019
+Duration    : 7m 23s
+Success     : true
+Exit status : 0
+Error report: -
+Completed at: 11-oct.-2019 15:26:43
+Duration    : 7m 25s
+CPU hours   : 0.2
+Succeeded   : 28
+
+N E X T F L O W  ~  version 19.04.0
+Launching `runMultiQC.nf` [reverent_noyce] - revision: 4bbf12d090
+WARN: There's no process matching config selector: GetVersionAlleleCount
+WARN: Access to undefined parameter `sample` -- Initialise it to a default value eg. `params.sample = some_value`
+WARN: Access to undefined parameter `pon` -- Initialise it to a default value eg. `params.pon = some_value`
+WARN: Access to undefined parameter `acLoci` -- Initialise it to a default value eg. `params.acLoci = some_value`
+WARN: Access to undefined parameter `acLociGC` -- Initialise it to a default value eg. `params.acLociGC = some_value`
+WARN: Access to undefined parameter `chrDir` -- Initialise it to a default value eg. `params.chrDir = some_value`
+WARN: Access to undefined parameter `chrLength` -- Initialise it to a default value eg. `params.chrLength = some_value`
+WARN: Access to undefined parameter `dbsnp` -- Initialise it to a default value eg. `params.dbsnp = some_value`
+WARN: Access to undefined parameter `fasta` -- Initialise it to a default value eg. `params.fasta = some_value`
+WARN: Access to undefined parameter `germlineResource` -- Initialise it to a default value eg. `params.germlineResource = some_value`
+WARN: Access to undefined parameter `intervals` -- Initialise it to a default value eg. `params.intervals = some_value`
+WARN: Access to undefined parameter `knownIndels` -- Initialise it to a default value eg. `params.knownIndels = some_value`
+WARN: Access to undefined parameter `snpeffDb` -- Initialise it to a default value eg. `params.snpeffDb = some_value`
+WARN: Access to undefined parameter `vepCacheVersion` -- Initialise it to a default value eg. `params.vepCacheVersion = some_value`
+WARN: Access to undefined parameter `config_profile_description` -- Initialise it to a default value eg. `params.config_profile_description = some_value`
+WARN: Access to undefined parameter `config_profile_contact` -- Initialise it to a default value eg. `params.config_profile_contact = some_value`
+WARN: Access to undefined parameter `config_profile_url` -- Initialise it to a default value eg. `params.config_profile_url = some_value`
+WARN: Access to undefined parameter `email` -- Initialise it to a default value eg. `params.email = some_value`
+Run Name          : reverent_noyce
+Genome            : smallGRCh37
+Genome Base       : References/smallGRCh37
+Sequencing Center : SEQC-II Consortium
+Step              : multiqc
+Tools             : fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff
+Sequenced by      : SEQC-II Consortium
+Max Resources     : 8 GB memory, 2 cpus, 1h time per job
+Container         : singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+Output dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/Reports
+Launch dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Working dir       : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Script dir        : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+User              : plarosa
+Config Profile    : singularityPath,test
+WARN: Access to undefined parameter `hostnames` -- Initialise it to a default value eg. `params.hostnames = some_value`
+    ____        _____               _    
+  .' _  `.     / ____|             | |   
+ /  |\`-_ \   | (___  ___  _ __ __ | | __
+|   | \  `-|   \___ \/__ \| ´__/ _\| |/ /
+ \ |   \  /    ____) | __ | | |  __|   < 
+  `|____\'    |_____/\____|_|  \__/|_|\_\
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 4bbf12d090
+Command Line: nextflow run runMultiQC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --tools fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff --sequencing_center 'SEQC-II Consortium' --step multiqc -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_multiqc_trace.csv -with-report Reports/pipeline_info/Sarek_multiqc_report.html -with-timeline Reports/pipeline_info/Sarek_multiqc_timeline.html -with-dag Reports/pipeline_info/Sarek_multiqc_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+WARN: Access to undefined parameter `callName` -- Initialise it to a default value eg. `params.callName = some_value`
+WARN: Access to undefined parameter `contactMail` -- Initialise it to a default value eg. `params.contactMail = some_value`
+executor >  local (1)
+[36/f7cf02] process > GetVersionAll [  0%] 0 of 1
+
+executor >  local (1)
+[36/f7cf02] process > GetVersionAll [  0%] 0 of 1 ✔
+
+executor >  local (2)
+[36/f7cf02] process > GetVersionAll [100%] 1 of 1 ✔
+[d2/a184a2] process > RunMultiQC    [  0%] 0 of 1
+
+executor >  local (2)
+[36/f7cf02] process > GetVersionAll [100%] 1 of 1 ✔
+[d2/a184a2] process > RunMultiQC    [100%] 1 of 1 ✔
+
+executor >  local (2)
+[36/f7cf02] process > GetVersionAll [100%] 1 of 1 ✔
+[d2/a184a2] process > RunMultiQC    [100%] 1 of 1 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 4bbf12d090
+Command Line: nextflow run runMultiQC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --tools fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff --sequencing_center 'SEQC-II Consortium' --step multiqc -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_multiqc_trace.csv -with-report Reports/pipeline_info/Sarek_multiqc_report.html -with-timeline Reports/pipeline_info/Sarek_multiqc_timeline.html -with-dag Reports/pipeline_info/Sarek_multiqc_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Completed at: Fri Oct 11 15:28:19 CEST 2019
+Duration    : 59.8s
+Success     : true
+Exit status : 0
+Error report: -
+
+executor >  local (2)
+[36/f7cf02] process > GetVersionAll [100%] 1 of 1 ✔
+[d2/a184a2] process > RunMultiQC    [100%] 1 of 1 ✔
+N E X T F L O W  ~  version 19.04.0 5069
+Sarek - Workflow For Somatic And Germline Variations ~ 2.3 - 4bbf12d090
+Command Line: nextflow run runMultiQC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --tools fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff --sequencing_center 'SEQC-II Consortium' --step multiqc -profile singularityPath,test -with-trace Reports/pipeline_info/Sarek_multiqc_trace.csv -with-report Reports/pipeline_info/Sarek_multiqc_report.html -with-timeline Reports/pipeline_info/Sarek_multiqc_timeline.html -with-dag Reports/pipeline_info/Sarek_multiqc_DAG.pdf
+Profile     : singularityPath,test
+Project Dir : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Launch Dir  : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Work Dir    : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435/work
+Out Dir     : /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1570795888435
+Genome      : smallGRCh37
+Genome_base : References/smallGRCh37
+Containers
+Repository   : maxulysse
+ContainerPath: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images
+Tag          : latest
+Completed at: Fri Oct 11 15:28:19 CEST 2019
+Duration    : 59.8s
+Success     : true
+Exit status : 0
+Error report: -
+Completed at: 11-oct.-2019 15:28:20
+Duration    : 1m 1s
+CPU hours   : (a few seconds)
+Succeeded   : 2
+

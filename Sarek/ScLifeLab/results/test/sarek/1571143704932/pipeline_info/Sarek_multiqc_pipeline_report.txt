@@ -1,0 +1,46 @@
+========================================
+ nf-core/sarek v2.3
+========================================
+Run Name: happy_roentgen
+
+## nf-core/sarek execution completed successfully! ##
+
+
+The workflow was completed at Tue Oct 15 15:20:04 CEST 2019 (duration: 1m 47s)
+
+The command used to launch the workflow was as follows:
+
+  nextflow run runMultiQC.nf -resume --genome_base References/smallGRCh37 --tag latest -c nextflow.config --genome smallGRCh37 --tools fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff --sequencing_center 'SEQC-II Consortium' --step multiqc -profile singularityPath,cluster -with-trace Reports/pipeline_info/Sarek_multiqc_trace.csv -with-report Reports/pipeline_info/Sarek_multiqc_report.html -with-timeline Reports/pipeline_info/Sarek_multiqc_timeline.html -with-dag Reports/pipeline_info/Sarek_multiqc_DAG.pdf
+
+
+
+Pipeline Configuration:
+-----------------------
+ - Run Name: happy_roentgen
+ - Genome: smallGRCh37
+ - Genome Base: References/smallGRCh37
+ - Sequencing Center: SEQC-II Consortium
+ - Step: multiqc
+ - Tools: fastqc,picard,samtools,qualimap,bcftools,vcftools,snpeff
+ - Sequenced by: SEQC-II Consortium
+ - Max Resources: 128 GB memory, 16 cpus, 10d time per job
+ - Container: singularity - /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Output dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571143704932/Reports
+ - Launch dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571143704932
+ - Working dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571143704932/work
+ - Script dir: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571143704932
+ - User: plarosa
+ - Config Profile: singularityPath,cluster
+ - Duration: 1m 47s
+ - Date Started: Tue Oct 15 15:18:17 CEST 2019
+ - Date Completed: Tue Oct 15 15:20:04 CEST 2019
+ - Pipeline script file path: /data/tmp/NGS_RUN_TEMP/SAREK-2.3_TEST_1571143704932/runMultiQC.nf
+ - Pipeline script hash ID: 4bbf12d090869f42df42e84e98635a65
+ - Docker image: /data/u900pf-bioinfo/containers/commun/dev/singularity/sarek-2.3/images/sarek-latest.simg
+ - Nextflow Version: 19.04.0
+ - Nextflow Build: 5069
+ - Nextflow Compile Timestamp: 17-04-2019 06:25 UTC
+
+--
+nf-core/sarek
+https://github.com/nf-core/sarek

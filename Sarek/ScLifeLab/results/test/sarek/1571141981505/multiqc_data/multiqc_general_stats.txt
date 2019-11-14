@@ -1,0 +1,37 @@
+Sample	Picard_mqc-generalstats-picard-PERCENT_DUPLICATION	Samtools Stats_mqc-generalstats-samtools_stats-reads_mapped	QualiMap_mqc-generalstats-qualimap-percentage_aligned	Samtools Stats_mqc-generalstats-samtools_stats-reads_mapped_percent	QualiMap_mqc-generalstats-qualimap-median_insert_size	QualiMap_mqc-generalstats-qualimap-general_error_rate	QualiMap_mqc-generalstats-qualimap-30_x_pc	QualiMap_mqc-generalstats-qualimap-10_x_pc	Samtools Stats_mqc-generalstats-samtools_stats-raw_total_sequences	QualiMap_mqc-generalstats-qualimap-1_x_pc	QualiMap_mqc-generalstats-qualimap-avg_gc	QualiMap_mqc-generalstats-qualimap-median_coverage	QualiMap_mqc-generalstats-qualimap-mapped_reads	Samtools Stats_mqc-generalstats-samtools_stats-error_rate	QualiMap_mqc-generalstats-qualimap-50_x_pc	QualiMap_mqc-generalstats-qualimap-5_x_pc	Samtools Stats_mqc-generalstats-samtools_stats-non_primary_alignments	QualiMap_mqc-generalstats-qualimap-total_reads	Samtools Stats_mqc-generalstats-samtools_stats-reads_MQ0_percent	Samtools Stats_mqc-generalstats-samtools_stats-reads_properly_paired_percent	Bcftools Stats_mqc-generalstats-bcftools_stats-tstv	Bcftools Stats_mqc-generalstats-bcftools_stats-number_of_SNPs	Bcftools Stats_mqc-generalstats-bcftools_stats-number_of_records	Bcftools Stats_mqc-generalstats-bcftools_stats-number_of_MNPs	Bcftools Stats_mqc-generalstats-bcftools_stats-number_of_indels	SnpEff_mqc-generalstats-snpeff-Ts_Tv_ratio	SnpEff_mqc-generalstats-snpeff-Number_of_variants_before_filter	SnpEff_mqc-generalstats-snpeff-Change_rate	FastQC_mqc-generalstats-fastqc-percent_duplicates	FastQC_mqc-generalstats-fastqc-avg_sequence_length	FastQC_mqc-generalstats-fastqc-total_sequences	FastQC_mqc-generalstats-fastqc-percent_fails	FastQC_mqc-generalstats-fastqc-percent_gc
+1234N	0.269859																																
+1234N.recal		267766.0	75.8397815718	75.8397815718	212	7.78	7.65735212639	11.117943596	353068.0	28.6392920055	46.5892594409	0	267766.0	0.07849814	6.36303103936	13.7028589601	15723.0	353068.0	16.8814505988	38.8027235547													
+1234N_M1			5.2108		90	7.21	3.84880083679	7.22094268415		16.3471548291	50.4216841187	0	65135.0		2.70790009168	9.53380092375		1250000.0															
+1234N_M2			16.21048		291	8.0	7.1585807314	9.96474437811		26.1184777721	46.8481068551	0	202631.0		6.09892444266	11.963308314		1250000.0															
+9876T	0.281127																																
+9876T.recal		261565.0	75.6759962736	75.6759962736	224	10.01	8.28892218172	11.7813157627	345638.0	30.3952406153	46.3940539912	0	261565.0	0.1007327	6.91559272427	14.6991594801	8126.0	345638.0	16.5485276503	40.6859199509													
+9876T_M1			5.1128		111	9.19	4.4315496821	7.99810678056		17.9757707664	50.0262848176	0	63910.0		3.11983681542	10.4799137368		1250000.0															
+9876T_M2			15.8124		293	10.29	7.82853692896	10.6979321174		27.5930522325	46.4863624511	0	197655.0		6.64167219477	13.0540213521		1250000.0															
+FreeBayes_9876T_vs_1234N																					1.63	237.0	281.0	65.0	10.0								
+HaplotypeCaller_1234N																					0.0	0.0	0.0	0.0	0.0								
+HaplotypeCaller_1234N_snpEff																										0.0	0.0	0.0					
+HaplotypeCaller_9876T																					0.0	0.0	0.0	0.0	0.0								
+HaplotypeCaller_9876T_snpEff																										0.0	0.0	0.0					
+Manta_1234N.diploidSV																					0.0	0.0	0.0	0.0	0.0								
+Manta_9876T.tumorSV																					0.0	0.0	0.0	0.0	0.0								
+Manta_9876T_vs_1234N.somaticSV																					0.0	0.0	0.0	0.0	0.0								
+MuTect2_9876T_vs_1234N																					0.0	0.0	0.0	0.0	0.0								
+MuTect2_9876T_vs_1234N_snpEff																										0.0	0.0	0.0					
+SRR7890849_1																													2.78000227333	125.0	625000.0	10.0	47.0
+SRR7890849_2																													2.41551369992	125.0	625000.0	10.0	47.0
+SRR7890875_1																													2.48972183971	125.0	625000.0	10.0	47.0
+SRR7890875_2																													2.06174292768	125.0	625000.0	10.0	47.0
+SRR7890912_1																													1.89282744755	150.0	625000.0	0.0	40.0
+SRR7890912_2																													1.63996783502	150.0	625000.0	0.0	40.0
+SRR7890916_1																													2.86715498466	150.0	625000.0	0.0	40.0
+SRR7890916_2																													1.68931624852	150.0	625000.0	10.0	40.0
+Strelka_1234N_variants																					0.0	0.0	3.0	0.0	3.0								
+Strelka_1234N_variants_snpEff																										0.0	3.0	83083540.0					
+Strelka_9876T_variants																					0.0	0.0	6.0	0.0	6.0								
+Strelka_9876T_variants_snpEff																										0.0	6.0	41541770.0					
+Strelka_9876T_vs_1234N_somatic_indels																					0.0	0.0	1.0	0.0	1.0								
+Strelka_9876T_vs_1234N_somatic_indels_snpEff																										0.0	1.0	249250621.0					
+Strelka_9876T_vs_1234N_somatic_snvs																					4.0	5.0	5.0	0.0	0.0								
+Strelka_9876T_vs_1234N_somatic_snvs_snpEff																										4.0	5.0	49850124.0					
+haplotypecaller_1234N.g																					0.0	0.0	2096.0	0.0	0.0								
+haplotypecaller_9876T.g																					0.0	0.0	2061.0	0.0	0.0								
